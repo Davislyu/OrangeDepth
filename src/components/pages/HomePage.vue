@@ -1,7 +1,7 @@
 <template>
   <div class="homepage-container">
-    <header>
-      <h1>Orange Project</h1>
+    <header class="header-container">
+      <h1 class="header-title">Orange Project</h1>
       <video
         :src="orangeVideo"
         autoplay
@@ -13,9 +13,15 @@
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
+      <p class="header-keepScrolling-message">
+        <span> <InputIcon class="pi pi-chevron-down"> </InputIcon> </span
+        >Squeeze every drop by scrolling Down!
+        <span> <InputIcon class="pi pi-chevron-down"> </InputIcon> </span>
+      </p>
     </header>
 
     <div class="content">
+      <Fieldset />
       <h2>Interesting Facts about Oranges</h2>
       <div class="facts-container">
         <FactCard
@@ -25,8 +31,12 @@
         />
       </div>
 
+      <div class="caruselle-container"><CaruselleComp /></div>
       <div class="banner">
-        <InputText placeholder="Enter your email" />
+        <IconField iconPosition="left">
+          <InputIcon class="pi pi-envelope"> </InputIcon>
+          <InputText class="email-input" placeholder="Enter Email" />
+        </IconField>
         <Button label="Subscribe" class="p-button-rounded p-button-warning" />
       </div>
     </div>
@@ -34,12 +44,16 @@
 </template>
 
 <script lang="ts" setup>
+import IconField from "primevue/iconfield";
+import InputIcon from "primevue/inputicon";
 import orangeVideo from "../../assets/orangeVideo.mp4";
 import InputText from "primevue/inputtext";
 import Button from "primevue/button";
 import { Ifact } from "../../interfaces/FactInterface";
 import FactCard from "../../components/FactCard.vue";
 import { reactive } from "vue";
+import CaruselleComp from "../CaruselleComp.vue";
+import Fieldset from "../FieldsetComp.vue";
 
 const facts = reactive<Ifact[]>([
   {
@@ -59,9 +73,23 @@ const facts = reactive<Ifact[]>([
 ]);
 </script>
 
-<style scoped>
+<style>
+.carousel-inner {
+  border-radius: 10px;
+}
+.header-keepScrolling-message {
+  display: flex;
+  gap: 1rem;
+  color: white;
+}
+.caruselle-container {
+  width: 70%;
+  margin-left: 50%;
+  transform: translate(-50%);
+  border-radius: 10px;
+}
 .video-background {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -69,19 +97,22 @@ const facts = reactive<Ifact[]>([
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: 1;
+  z-index: -10000000;
 }
 
-header {
+.header-container {
   position: relative;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-h1 {
+.header-title {
+  text-align: center;
+  margin-top: 20%;
   position: relative;
   color: #fff;
   font-size: 4rem;
@@ -109,9 +140,8 @@ h1 {
   z-index: 1;
 }
 .content {
-  padding: 2rem;
   text-align: center;
-  background-color: #133337;
+  margin-top: 1%;
 }
 
 .facts-container {
@@ -134,5 +164,25 @@ h1 {
 .fact-icon {
   font-size: 2rem;
   display: inline-block;
+}
+.p-inputtext:focus {
+  outline: none;
+  box-shadow: none; /* Remove any box shadow if present */
+}
+
+/* Optionally, if you want to remove the border entirely and make it seamless with the background */
+
+.email-input:focus {
+  background-color: transparent;
+  border: 1px solid orange;
+  outline: none;
+}
+.email-input:hover {
+  border: 1px solid orange;
+  outline: none;
+}
+.email-input {
+  background-color: transparent;
+  border-radius: 9px;
 }
 </style>
