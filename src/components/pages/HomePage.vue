@@ -19,7 +19,6 @@
         <span> <InputIcon class="pi pi-chevron-down"> </InputIcon> </span>
       </p>
     </header>
-
     <div class="content">
       <About_siteComp :about_text="aboutSiteText" />
       <h2>Interesting Facts about Oranges</h2>
@@ -91,6 +90,13 @@ const facts = reactive<Ifact[]>([
   transform: translate(-50%);
   border-radius: 10px;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
 .video-background {
   position: fixed;
   top: 50%;
@@ -137,7 +143,7 @@ const facts = reactive<Ifact[]>([
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.3) 50%,
     rgba(0, 0, 0, 0.6) 100%
   );
   z-index: 1;

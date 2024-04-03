@@ -38,7 +38,6 @@ const props = defineProps({
   color: whitesmoke;
   backdrop-filter: blur(20px);
   display: flex;
-  border: 1px solid red;
   align-items: center;
   gap: 2rem;
 }
