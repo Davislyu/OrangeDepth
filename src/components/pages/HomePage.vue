@@ -21,7 +21,7 @@
     </header>
 
     <div class="content">
-      <Fieldset />
+      <About_siteComp />
       <h2>Interesting Facts about Oranges</h2>
       <div class="facts-container">
         <FactCard
@@ -53,7 +53,7 @@ import { Ifact } from "../../interfaces/FactInterface";
 import FactCard from "../../components/FactCard.vue";
 import { reactive } from "vue";
 import CaruselleComp from "../CaruselleComp.vue";
-import Fieldset from "../FieldsetComp.vue";
+import About_siteComp from "../About_siteComp.vue";
 
 const facts = reactive<Ifact[]>([
   {
