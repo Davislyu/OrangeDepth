@@ -15,13 +15,18 @@ const props = defineProps<IFactCardProps>();
 <style scoped>
 .fact-item {
   max-width: 300px;
+  height: 200px; /* Fixed height */
   margin: 1rem;
   padding: 1rem;
-  background-color: #ffffff80;
+  background-color: #ffffff1c;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 0.6px solid orange;
-}
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: white;
+  backdrop-filter: blur(70px);}
 
 .fact-icon {
   font-size: 2rem;
@@ -29,9 +34,5 @@ const props = defineProps<IFactCardProps>();
   margin-bottom: 0.5rem;
 }
 
-.fact-item:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: scale(1.04);
-  transition: 0.3s;
-}
+
 </style>
