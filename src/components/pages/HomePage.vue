@@ -32,15 +32,15 @@
         />
 
       </div>
-      <button @click="nextPage" class="button-refresh btn" >Refresh</button>
 
+      <Button label="Refresh" @click="nextPage" severity="warning" outlined class="button-refresh" />
       <div class="merch-container">
         <div class="merch-text">
           <h1>Our exclusive AI generated merch</h1>
           <p>Discover our exclusive AI-generated merchandise collection, where the zest of oranges meets the precision of data charts! Dive into a wardrobe where every piece is a splash of citrus sunshine, meticulously blended with the analytical prowess of data visualization. Our clothing line is not just apparel; it's a statement for those who revel in the tangy touch of oranges and the sharp insights of charts.</p>
         </div>
         <div class="caruselle-container">
-          <CaruselleComp />
+          <CaruselleComp :images="[shirt, hat]" />
         </div>
 </div>
       
@@ -50,6 +50,7 @@
 
 <script lang="ts" setup>
 import IconField from "primevue/iconfield";
+import Button from 'primevue/button';
 import InputIcon from "primevue/inputicon";
 import orangeVideo from "../../assets/orangeVideo.mp4";
 import InputText from "primevue/inputtext";
@@ -60,6 +61,10 @@ import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
 const currentPage = ref(0);
 const pageSize = 3;
+
+import shirt from "../../assets/clothing/shirt.png"
+import hat from "../../assets/clothing/hat.png"
+
 
 const aboutSiteText = ref(
   "Welcome to the juiciest website this side of the orange grove! This little slice of the internet was hand-squeezed with a whole lot of love, orange juice, and an unhealthy obsession with citrus fruits. But don't let the playful peel fool you – beneath the zesty exterior lies a serious commitment to helping you master the art of working with datasets and charts. We're talking ag-grid mastery and chart.js wizardry, all served up with a refreshing twist of orange goodness. Imagine being able to slice and dice data like a pro, creating visualizations so tantalizing, they'll make your taste buds (and your boss) do a happy dance. And the best part? You'll learn it all while basking in the warm, citrusy glow of our orange-infused content. So, whether you're a data ninja in training o      just someone who appreciates a good dose of vitamin C (both the nutrient and the coding variety), you've come to the right place. Grab a glass of your favorite orange juice, kick back, and get ready to embark on a journey that's equal parts educational and deliciously entertaining. Just remember, if you ever feel like you're losing your zest, take a deep breath and repeat after us: I am the orange overlord, and data is my juicy domain! Now, let's get squeezing! (But not too hard, we don't want any pulp in our code.)"
@@ -135,21 +140,14 @@ function nextPage() {
 </script>
 
 <style scoped>
-.carousel-inner {
-  border-radius: 10px;
-}
+
 .header-keepScrolling-message {
   display: flex;
   gap: 1rem;
   color: white;
 }
 
-.caruselle-container {
-  width: 40%;
-  margin-left: 50%;
-  transform: translate(-50%);
-  border-radius: 10px;
-}
+
 
 .video-background {
   position: fixed;
@@ -241,27 +239,19 @@ function nextPage() {
   background-color: transparent;
   border-radius: 9px;
 }
-button{
-  border: 1px solid orange;
-  color: orange;
-  backdrop-filter: blur(90px);
 
-}
-button:hover{
-  border: 1px solid orange;
-  color: white;
-
-}
 .merch-container {
   color: whitesmoke;
   backdrop-filter: blur(20px);
   gap: 2rem;
+  margin-top:1rem;
 }
 .merch-text {
   margin-left: 10%;
   margin-right: 10%;
   line-height: 3rem;
-  padding: 2rem
+  padding: 2rem;
 }
+
 
 </style>
