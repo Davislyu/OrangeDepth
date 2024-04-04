@@ -1,6 +1,5 @@
 <template>
   <div class="homepage-container">
-
     <header class="header-container">
       <h1 class="header-title">OrangeDepth°</h1>
       <video
@@ -11,22 +10,19 @@
         class="video-background"
         playsinline
         ref="videoElement"
-
       >
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
-      <div class="downMessage">     
-         <p class="header-keepScrolling-message">
-        <span> <img class="downImg" :src="arrowDown" alt="#"> </span
-        >Squeeze every drop by scrolling Down!
-        <span><img class="downImg" :src="arrowDown" alt="#"> </span>
-      </p>
-   
-    </div>
-
+      <div class="downMessage">
+        <p class="header-keepScrolling-message">
+          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
+          every drop by scrolling Down!
+          <span><img class="downImg" :src="arrowDown" alt="#" /> </span>
+        </p>
+      </div>
     </header>
-    <div  class="content">
+    <div class="content">
       <About_siteComp :about_text="aboutSiteText" />
 
       <div class="facts-container">
@@ -36,49 +32,74 @@
           :fact_text="fact.fact_text"
           v-motion-slide-visible-left
         />
-
       </div>
 
-      <Button label="Refresh" @click="nextPage" severity="warning" outlined class="button-refresh" />
+      <Button
+        label="Refresh"
+        @click="nextPage"
+        severity="warning"
+        outlined
+        class="button-refresh"
+      />
       <div class="merch-container">
         <div class="merch-text">
           <h1>Our exclusive AI generated merch</h1>
-          <p>Discover our exclusive AI-generated merchandise collection, where the zest of oranges meets the precision of data charts! Dive into a wardrobe where every piece is a splash of citrus sunshine, meticulously blended with the analytical prowess of data visualization. Our clothing line is not just apparel; it's a statement for those who revel in the tangy touch of oranges and the sharp insights of charts.</p>
+          <p>
+            Discover our exclusive AI-generated merchandise collection, where
+            the zest of oranges meets the precision of data charts! Dive into a
+            wardrobe where every piece is a splash of citrus sunshine,
+            meticulously blended with the analytical prowess of data
+            visualization. Our clothing line is not just apparel; it's a
+            statement for those who revel in the tangy touch of oranges and the
+            sharp insights of charts.
+          </p>
         </div>
-        <div  class="caruselle-container">
-          <CaruselleComp :images="[shirt,shirt2,shirt3,shirt4, shoes,shoes2,shoes3,socks,hat,umbrella,pants]" />
+        <div class="caruselle-container">
+          <CaruselleComp
+            :images="[
+              shirt,
+              shirt2,
+              shirt3,
+              shirt4,
+              shoes,
+              shoes2,
+              shoes3,
+              socks,
+              hat,
+              umbrella,
+              pants,
+            ]"
+          />
         </div>
-</div>
-      
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-
-
-import Button from 'primevue/button';
+import Button from "primevue/button";
 import orangeVideo from "../../assets/orangeVideo.mp4";
 import { Ifact } from "../../interfaces/FactInterface";
 import FactCard from "../../components/FactCard.vue";
-import { reactive, ref, computed,onMounted } from "vue";
+import { reactive, ref, computed, onMounted } from "vue";
 import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
-import arrowDown from "../../assets/arrowDown.png"
-import shirt from "../../assets/clothing/shirt.png"
-import shirt2 from "../../assets/clothing/shirt2.png"
-import shirt3 from "../../assets/clothing/shirt3.png"
-import shirt4 from "../../assets/clothing/shirt4.png"
-import pants from "../../assets/clothing/pants.png"
-import socks from "../../assets/clothing/socks.png"
-import umbrella from "../../assets/clothing/umbrella.png"
-import shoes from "../../assets/clothing/shoes.png"
-import shoes3 from "../../assets/clothing/shoes3.png"
-import shoes2 from "../../assets/clothing/shoes2.png"
-import hat from "../../assets/clothing/hat.png"
 
+import arrowDown from "../../assets/arrowDown.png";
+import shirt from "../../assets/clothing/shirt.png";
+import shirt2 from "../../assets/clothing/shirt2.png";
+import shirt3 from "../../assets/clothing/shirt3.png";
+import shirt4 from "../../assets/clothing/shirt4.png";
+import pants from "../../assets/clothing/pants.png";
+import socks from "../../assets/clothing/socks.png";
+import umbrella from "../../assets/clothing/umbrella.png";
+import shoes from "../../assets/clothing/shoes.png";
+import shoes3 from "../../assets/clothing/shoes3.png";
+import shoes2 from "../../assets/clothing/shoes2.png";
+import hat from "../../assets/clothing/hat.png";
 
-const videoElement = ref<HTMLVideoElement | null>(null);const currentPage = ref(0);
+const videoElement = ref<HTMLVideoElement | null>(null);
+const currentPage = ref(0);
 const pageSize = 3;
 const aboutSiteText = ref(
   "Welcome to the juiciest website this side of the orange grove! This little slice of the internet was hand-squeezed with a whole lot of love, orange juice, and an unhealthy obsession with citrus fruits. But don't let the playful peel fool you – beneath the zesty exterior lies a serious commitment to helping you master the art of working with datasets and charts. We're talking ag-grid mastery and chart.js wizardry, all served up with a refreshing twist of orange goodness. Imagine being able to slice and dice data like a pro, creating visualizations so tantalizing, they'll make your taste buds (and your boss) do a happy dance. And the best part? You'll learn it all while basking in the warm, citrusy glow of our orange-infused content. So, whether you're a data ninja in training o      just someone who appreciates a good dose of vitamin C (both the nutrient and the coding variety), you've come to the right place. Grab a glass of your favorite orange juice, kick back, and get ready to embark on a journey that's equal parts educational and deliciously entertaining. Just remember, if you ever feel like you're losing your zest, take a deep breath and repeat after us: I am the orange overlord, and data is my juicy domain! Now, let's get squeezing! (But not too hard, we don't want any pulp in our code.)"
@@ -145,8 +166,7 @@ const paginatedFacts = computed(() => {
 });
 onMounted(() => {
   if (videoElement.value) {
-  
-    videoElement.value.playbackRate = 0.8; 
+    videoElement.value.playbackRate = 0.8;
   }
 });
 
@@ -154,14 +174,13 @@ function nextPage() {
   if ((currentPage.value + 1) * pageSize < facts.length) {
     currentPage.value++;
   } else {
-    currentPage.value = 0; 
+    currentPage.value = 0;
   }
 }
 </script>
 
 <style scoped>
-
-*{
+* {
   font-weight: 100;
 }
 
@@ -173,12 +192,12 @@ function nextPage() {
   color: white;
 }
 
-.downImg{
+.downImg {
   width: 35px;
   height: 35px;
 }
 
-.downMessage{
+.downMessage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -281,10 +300,6 @@ function nextPage() {
   padding: 1rem;
 }
 
-
-
-
-
 .banner .p-inputtext {
   margin-right: 1rem;
 }
@@ -294,10 +309,8 @@ function nextPage() {
 }
 .p-inputtext:focus {
   outline: none;
-  box-shadow: none; 
+  box-shadow: none;
 }
-
-
 
 .email-input:focus {
   background-color: transparent;
@@ -317,7 +330,7 @@ function nextPage() {
   color: whitesmoke;
   backdrop-filter: blur(20px);
   gap: 2rem;
-  margin-top:1rem;
+  margin-top: 1rem;
 }
 .merch-text {
   margin-left: 10%;
@@ -325,5 +338,4 @@ function nextPage() {
   line-height: 3rem;
   padding: 2rem;
 }
-
 </style>
