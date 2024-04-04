@@ -91,7 +91,7 @@ const videoElement = ref<HTMLVideoElement | null>(null);
 const currentPage = ref(0);
 const pageSize = 3;
 const aboutSiteText = ref(
-  "Welcome to OrangeDepth°,  where citrus meets data mastery! Dive into juicy datasets and charts with us. Whether you're a data ninja or just love vitamin C, grab a glass of orange juice and let's squeeze some insights together! 🍊💻 #DataCitrusMastery. \n Join us on a flavorful journey of discovery, where every chart is a slice of citrus sunshine and every dataset is a refreshing splash of insight. Let's zest up your data skills and embark on an orange-infused adventure together! 🚀🍊"
+  "Welcome to OrangeDepth°, where citrus meets data mastery! Dive into juicy datasets and charts with us. Whether you're a data ninja or just love vitamin C, grab a glass of orange juice and let's squeeze some insights together! 🍊💻 #DataCitrusMastery. + Join us on a flavorful journey of discovery, where every chart is a slice of citrus sunshine and every dataset is a refreshing splash of insight. Let's zest up your data skills and embark on an orange-infused adventure together! 🚀🍊"
 );
 const facts = reactive<Ifact[]>([
   {

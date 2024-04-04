@@ -15,7 +15,7 @@ const props = defineProps<IFactCardProps>();
 <style scoped>
 .fact-item {
   max-width: 300px;
-  height: 200px; /* Fixed height */
+  height: 200px;
   margin: 1rem;
   padding: 1rem;
   background-color: #ffffff1c;
@@ -26,13 +26,12 @@ const props = defineProps<IFactCardProps>();
   flex-direction: column;
   overflow: hidden;
   color: white;
-  backdrop-filter: blur(70px);}
+  backdrop-filter: blur(70px);
+}
 
 .fact-icon {
   font-size: 2rem;
   color: #ff9800;
   margin-bottom: 0.5rem;
 }
-
-
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="nav"><Navbar /></div>
   <router-view />
-  <!-- This will render the component corresponding to the current route -->
 </template>
 
 <script lang="ts" setup>
