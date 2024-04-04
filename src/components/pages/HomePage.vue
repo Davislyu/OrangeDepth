@@ -14,6 +14,13 @@
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
+      <p class="welcome-dataset-text">
+        Welcome to a zestful realm where data crunching meets citrus punch!
+        Here, numbers are juicier, and insights come with a twist of orange. We
+        serve up fresh, tangy data in a fun, flavorful way, making analytics an
+        adventure in taste and knowledge. Get ready to peel back the layers of
+        information and discover the sweet core of citrus-powered data!
+      </p>
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
@@ -184,6 +191,11 @@ function nextPage() {
 .downImg {
   width: 35px;
   height: 35px;
+}
+
+.welcome-dataset-text {
+  color: white;
+  width: 40%;
 }
 
 .downMessage {
