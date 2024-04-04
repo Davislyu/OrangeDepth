@@ -1,16 +1,19 @@
 <template>
     <div class="carousel">
       <div class="carousel-container">
-        <div class="carousele-slider" v-for="(image, index) in images" :key="index">
-          <img v-if="isCurrentIndex(index)" :src="image" :alt="'Image ' + index" class="carousel-image">
+        <div class="carousel-slider" v-for="(image, index) in images" :key="index">
+          <TransitionGroup name="v">
+            <img v-if="isCurrentIndex(index)" :src="image" :alt="'Image ' + index" class="carousel-image">
+          </TransitionGroup>
         </div>
       </div>
-      <div class="arrows">      <i @click="prevImage" class="pi pi-chevron-left" style="font-size: 2rem"></i>
-      <i @click="nextImage" class="pi pi-chevron-right" style="font-size: 2rem"></i></div>
-
-
+      <div class="arrows">
+        <i @click="prevImage" class="pi pi-chevron-left" style="font-size: 2rem"></i>
+        <i @click="nextImage" class="pi pi-chevron-right" style="font-size: 2rem"></i>
+      </div>
     </div>
   </template>
+  
   
   
   
@@ -38,6 +41,18 @@
   
 
 <style>
+.v-move,
+.v-enter-active,
+.v-leave-active {
+  transition: 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
 .carousel{
     display: flex;
     align-items: center;
@@ -60,9 +75,14 @@
   display: block; 
 }
 
-.arrows{
+.arrows {
     display: flex;
     gap: 2rem;
     margin-bottom: 3rem;
+
+}
+.arrows i {
+
+    cursor: pointer;
 }
 </style>
