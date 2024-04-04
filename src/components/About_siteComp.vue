@@ -4,7 +4,7 @@
       <img class="logo" :src="LogoImage2" alt="logoImage" />
     </div>
     <div class="about_siteContent">
-      <h3 class="about-header">About This Website</h3>
+      <h2 class="about-header">About This Website</h2>
       <p class="about-text">{{ props.about_text }}</p>
     </div>
   </section>
@@ -33,6 +33,7 @@ const props = defineProps({
 
 .about-header {
   margin-top: 2%;
+  font-weight: 150;
 }
 .about-container {
   color: whitesmoke;
@@ -44,7 +45,7 @@ const props = defineProps({
 .about-text {
   margin-left: 10%;
   margin-right: 10%;
-  line-height: 3rem;
+  line-height: 1.7rem;
 }
 .logo {
   width: 600px;

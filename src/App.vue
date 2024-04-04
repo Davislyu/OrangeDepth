@@ -1,11 +1,11 @@
 <template>
   <div class="nav"><Navbar /></div>
-  <HomePage />
+  <router-view />
+  <!-- This will render the component corresponding to the current route -->
 </template>
 
 <script lang="ts" setup>
 import Navbar from "./components/Navbar.vue";
-import HomePage from "./components/pages/HomePage.vue";
 </script>
 
 <style scoped>

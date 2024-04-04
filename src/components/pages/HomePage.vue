@@ -24,7 +24,6 @@
     </header>
     <div class="content">
       <About_siteComp :about_text="aboutSiteText" />
-
       <div class="facts-container">
         <FactCard
           v-for="fact in paginatedFacts"
@@ -44,6 +43,7 @@
       <div class="merch-container">
         <div class="merch-text">
           <h1>Our exclusive AI generated merch</h1>
+
           <p>
             Discover our exclusive AI-generated merchandise collection, where
             the zest of oranges meets the precision of data charts! Dive into a
@@ -91,7 +91,7 @@ const videoElement = ref<HTMLVideoElement | null>(null);
 const currentPage = ref(0);
 const pageSize = 3;
 const aboutSiteText = ref(
-  "Welcome to the juiciest website this side of the orange grove! This little slice of the internet was hand-squeezed with a whole lot of love, orange juice, and an unhealthy obsession with citrus fruits. But don't let the playful peel fool you – beneath the zesty exterior lies a serious commitment to helping you master the art of working with datasets and charts. We're talking ag-grid mastery and chart.js wizardry, all served up with a refreshing twist of orange goodness. Imagine being able to slice and dice data like a pro, creating visualizations so tantalizing, they'll make your taste buds (and your boss) do a happy dance. And the best part? You'll learn it all while basking in the warm, citrusy glow of our orange-infused content. So, whether you're a data ninja in training o      just someone who appreciates a good dose of vitamin C (both the nutrient and the coding variety), you've come to the right place. Grab a glass of your favorite orange juice, kick back, and get ready to embark on a journey that's equal parts educational and deliciously entertaining. Just remember, if you ever feel like you're losing your zest, take a deep breath and repeat after us: I am the orange overlord, and data is my juicy domain! Now, let's get squeezing! (But not too hard, we don't want any pulp in our code.)"
+  "Welcome to OrangeDepth°,  where citrus meets data mastery! Dive into juicy datasets and charts with us. Whether you're a data ninja or just love vitamin C, grab a glass of orange juice and let's squeeze some insights together! 🍊💻 #DataCitrusMastery. \n Join us on a flavorful journey of discovery, where every chart is a slice of citrus sunshine and every dataset is a refreshing splash of insight. Let's zest up your data skills and embark on an orange-infused adventure together! 🚀🍊"
 );
 const facts = reactive<Ifact[]>([
   {
