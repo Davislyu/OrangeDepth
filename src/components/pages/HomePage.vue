@@ -57,17 +57,17 @@
         <div class="caruselle-container">
           <CaruselleComp
             :images="[
-              shirt,
-              shirt2,
-              shirt3,
-              shirt4,
-              shoes,
-              shoes2,
-              shoes3,
-              socks,
-              hat,
-              umbrella,
-              pants,
+              clothingImages.shirt,
+              clothingImages.shirt2,
+              clothingImages.shirt3,
+              clothingImages.shirt4,
+              clothingImages.shoes,
+              clothingImages.shoes2,
+              clothingImages.shoes3,
+              clothingImages.socks,
+              clothingImages.hat,
+              clothingImages.umbrella,
+              clothingImages.pants,
             ]"
           />
         </div>
@@ -84,19 +84,8 @@ import FactCard from "../../components/FactCard.vue";
 import { reactive, ref, computed, onMounted } from "vue";
 import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
-
 import arrowDown from "../../assets/arrowDown.png";
-import shirt from "../../assets/clothing/shirt.png";
-import shirt2 from "../../assets/clothing/shirt2.png";
-import shirt3 from "../../assets/clothing/shirt3.png";
-import shirt4 from "../../assets/clothing/shirt4.png";
-import pants from "../../assets/clothing/pants.png";
-import socks from "../../assets/clothing/socks.png";
-import umbrella from "../../assets/clothing/umbrella.png";
-import shoes from "../../assets/clothing/shoes.png";
-import shoes3 from "../../assets/clothing/shoes3.png";
-import shoes2 from "../../assets/clothing/shoes2.png";
-import hat from "../../assets/clothing/hat.png";
+import * as clothingImages from "../../assets/clothing";
 
 const videoElement = ref<HTMLVideoElement | null>(null);
 const currentPage = ref(0);
