@@ -34,7 +34,7 @@
         :rowData="rowData"
         :columnDefs="colDefs"
         class="ag-theme-quartz-dark"
-        style="width: 90%; height: 100%"
+        style="width: 92%; height: 100%"
       ></ag-grid-vue>
     </div>
   </div>
@@ -90,6 +90,26 @@ const rowData = ref(OrangeDatSet.value);
   --ag-header-height: 30px;
   --ag-header-foreground-color: white;
   --ag-header-background-color: rgba(241, 133, 0, 0.803);
+  --ag-background-color: transparent;
+  background-color: transparent !important;
+  backdrop-filter: blur(15px);
+}
+
+.ag-theme-quartz-dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ag-theme-quartz-dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(241, 133, 0, 0.8);
+  border-radius: 4px;
+}
+
+.ag-theme-quartz-dark ::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ag-theme-quartz-dark ::-webkit-scrollbar-corner {
+  background-color: black;
 }
 
 .about-dataset-text {
