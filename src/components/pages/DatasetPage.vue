@@ -53,7 +53,7 @@ const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
 const videoElement = ref<HTMLVideoElement | null>(null);
 
 const colDefs = ref([
-  { field: "Size (cm)", headerName: "Size (cm)" },
+  { field: "Size (cm)", headerName: "Size (cm)", filter: true },
   { field: "Weight (g)", headerName: "Weight (g)" },
   { field: "Brix (Sweetness)", headerName: "Brix (Sweetness)" },
   { field: "pH (Acidity)", headerName: "pH (Acidity)" },
@@ -73,6 +73,10 @@ const rowData = ref(OrangeDatSet.value);
   font-weight: 100;
 }
 
+.ag-simple-filter-body-wrapper {
+  background: red;
+}
+
 .header-keepScrolling-message {
   display: flex;
   gap: 1rem;
@@ -90,6 +94,7 @@ const rowData = ref(OrangeDatSet.value);
   --ag-header-height: 30px;
   --ag-header-foreground-color: white;
   --ag-header-background-color: rgba(241, 133, 0, 0.803);
+
   --ag-background-color: transparent;
   background-color: transparent !important;
   backdrop-filter: blur(15px);

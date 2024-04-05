@@ -93,9 +93,9 @@ const items = ref([
 
 .p-submenu-list,
 #pv_id_1.p-menubar-root-list {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 9px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
 }
 
