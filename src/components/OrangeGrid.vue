@@ -12,7 +12,7 @@ import { AgGridVue } from "ag-grid-vue3";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { defineProps } from "vue";
-import { IOrange } from "../../interfaces/OrangeInterface";
+import { IOrange } from "../interfaces/OrangeInterface";
 
 const props = defineProps({
   rowData: {

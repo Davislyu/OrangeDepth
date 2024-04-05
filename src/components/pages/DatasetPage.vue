@@ -38,7 +38,7 @@
 <script lang="ts" setup>
 import orangeVideo from "../../assets/orangeVideo2.mp4";
 import arrowDown from "../../assets/arrowDown.png";
-import OrangeGrid from "../pages/OrangeGrid.vue";
+import OrangeGrid from "../OrangeGrid.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
 import { IOrange } from "../../interfaces/OrangeInterface";
