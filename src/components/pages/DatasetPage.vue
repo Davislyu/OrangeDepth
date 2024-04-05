@@ -30,12 +30,7 @@
       </div>
     </header>
     <div class="content">
-      <ag-grid-vue
-        :rowData="rowData"
-        :columnDefs="colDefs"
-        class="ag-theme-quartz-dark"
-        style="width: 92%; height: 100%"
-      ></ag-grid-vue>
+      <OrangeGrid :colDefs="colDefs" :rowData="rowData" />
     </div>
   </div>
 </template>
@@ -43,14 +38,15 @@
 <script lang="ts" setup>
 import orangeVideo from "../../assets/orangeVideo2.mp4";
 import arrowDown from "../../assets/arrowDown.png";
-import { ref } from "vue";
-import { AgGridVue } from "ag-grid-vue3";
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
+import OrangeGrid from "../pages/OrangeGrid.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
-import { IOrange } from "../../interfaces/OrangeInterface";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
+import { IOrange } from "../../interfaces/OrangeInterface";
+import { ref } from "vue";
+
 const videoElement = ref<HTMLVideoElement | null>(null);
+
+const rowData = ref(OrangeDatSet.value);
 
 const colDefs = ref([
   { field: "Size (cm)", headerName: "Size (cm)", filter: true },
@@ -65,16 +61,11 @@ const colDefs = ref([
   { field: "Blemishes (Y/N)", headerName: "Blemishes (Y/N)" },
   { field: "Quality (1-5)", headerName: "Quality (1-5)" },
 ]);
-const rowData = ref(OrangeDatSet.value);
 </script>
 
 <style scoped>
 * {
   font-weight: 100;
-}
-
-.ag-simple-filter-body-wrapper {
-  background: red;
 }
 
 .header-keepScrolling-message {
@@ -88,33 +79,6 @@ const rowData = ref(OrangeDatSet.value);
 .downImg {
   width: 35px;
   height: 35px;
-}
-
-.ag-theme-quartz-dark {
-  --ag-header-height: 30px;
-  --ag-header-foreground-color: white;
-  --ag-header-background-color: rgba(241, 133, 0, 0.803);
-
-  --ag-background-color: transparent;
-  background-color: transparent !important;
-  backdrop-filter: blur(15px);
-}
-
-.ag-theme-quartz-dark ::-webkit-scrollbar {
-  width: 8px;
-}
-
-.ag-theme-quartz-dark ::-webkit-scrollbar-thumb {
-  background-color: rgba(241, 133, 0, 0.8);
-  border-radius: 4px;
-}
-
-.ag-theme-quartz-dark ::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.ag-theme-quartz-dark ::-webkit-scrollbar-corner {
-  background-color: black;
 }
 
 .about-dataset-text {
@@ -236,20 +200,5 @@ const rowData = ref(OrangeDatSet.value);
   margin-right: 10%;
   line-height: 3rem;
   padding: 2rem;
-}
-.ag-theme-quartz {
-  background-color: transparent !important;
-}
-
-::v-deep .ag-theme-quartz {
-  background-color: transparent !important;
-}
-
-::v-deep .ag-cell {
-  background-color: transparent !important;
-}
-
-::v-deep .ag-header-cell {
-  background-color: transparent !important;
 }
 </style>
