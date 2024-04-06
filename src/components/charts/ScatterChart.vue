@@ -27,11 +27,9 @@ export default {
     chartData: Array,
     xField: String,
     yField: String,
-    xAxisTitle: String,
-    yAxisTitle: String,
   },
   setup(props) {
-    const { chartData, xField, yField, xAxisTitle, yAxisTitle } = toRefs(props);
+    const { chartData, xField, yField } = toRefs(props);
 
     const ScatterData = computed(() => ({
       datasets: chartData.value.map((group) => ({
@@ -48,8 +46,14 @@ export default {
 
     const ScatterOptions = computed(() => ({
       scales: {
-        x: { title: { display: true, text: xAxisTitle.value } },
-        y: { title: { display: true, text: yAxisTitle.value } },
+        x: {
+          title: { display: true, text: xField.value },
+          grid: { color: "gray" },
+        },
+        y: {
+          title: { display: true, text: yField.value },
+          grid: { color: "gray" },
+        },
       },
       responsive: true,
     }));
@@ -61,8 +65,8 @@ export default {
 
 <style scoped>
 .scatter {
-  width: 450px;
-  height: 450px;
+  width: 650px;
+  height: 650px;
   display: flex;
 }
 </style>

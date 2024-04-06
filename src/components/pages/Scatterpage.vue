@@ -28,26 +28,31 @@
       </div>
     </header>
     <div class="content">
-      <div class="varietyCheckBoxes"><div v-for="variety in allVarieties" :key="variety">
-        <input type="checkbox" :value="variety" v-model="selectedVarieties" />{{
-          variety
-        }}
-      </div></div>
-      
+      <div class="varietySelection">
+        <MultiSelect
+          v-model="selectedVarieties"
+          :options="allVarieties"
+          optionLabel="name"
+          placeholder="Select varieties"
+          display="chip"
+        />
+      </div>
+
       <div class="scatterCharts-container">
         <ScatterChart
           :chartData="filteredOrangeData"
           :xField="OrangeAttributesEnum.ripness"
-          :yField="OrangeAttributesEnum.ph"
-          xAxisTitle="Size (cm)"
-          yAxisTitle="Brix (Sweetness)"
+          :yField="OrangeAttributesEnum.brix"
+        />
+        <ScatterChart
+          :chartData="filteredOrangeData"
+          :xField="OrangeAttributesEnum.harvestTime"
+          :yField="OrangeAttributesEnum.ripness"
         />
         <ScatterChart
           :chartData="filteredOrangeData"
           :xField="OrangeAttributesEnum.size"
-          :yField="OrangeAttributesEnum.weight"
-          xAxisTitle="Size (cm)"
-          yAxisTitle="Brix (Sweetness)"
+          :yField="OrangeAttributesEnum.quality"
         />
       </div>
     </div>
@@ -63,19 +68,29 @@ import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";
 import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
 import { ref, computed, onMounted, watch } from "vue";
+import MultiSelect from "primevue/multiselect";
 
 const videoElement = ref<HTMLVideoElement | null>(null);
-const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
+interface VarietyOption {
+  name: string;
+}
 
-const selectedVarieties = ref([]);
-const allVarieties = Object.values(OrangeVarietyEnum);
+const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
+const selectedVarieties = ref<VarietyOption[]>([]);
+const allVarieties = ref(
+  Object.values(OrangeVarietyEnum).map((variety) => ({ name: variety }))
+);
 
 const filteredOrangeData = computed(() => {
-  return selectedVarieties.value.map((variety) => ({
-    variety,
-    data: OrangeDataSet.value.filter((orange) => orange.Variety === variety),
-    color: getRandomColor(),
-  }));
+  return selectedVarieties.value.map((selected) => {
+    return {
+      variety: selected.name,
+      data: OrangeDataSet.value.filter(
+        (orange) => orange.Variety === selected.name
+      ),
+      color: getRandomColor(),
+    };
+  });
 });
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -90,15 +105,9 @@ watch(selectedVarieties, (newVal) => {
 });
 </script>
 
-<style scoped></style>
-
 <style scoped>
 * {
   font-weight: 100;
-}
-.scatterCharts-container {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .header-keepScrolling-message {
@@ -112,13 +121,6 @@ watch(selectedVarieties, (newVal) => {
 .about-scatter-text {
   color: white;
   width: 40%;
-}
-
-.varietyCheckBoxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; /* This will allow the items to wrap into the next line if the space is not sufficient */
-  gap: 10px; /* Add some space between the checkboxes */
 }
 
 .downImg {
@@ -218,6 +220,43 @@ watch(selectedVarieties, (newVal) => {
   z-index: 1;
 }
 .content {
-  background-color: white;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  backdrop-filter: blur(90px);
+}
+.scatterCharts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 1rem;
+}
+.varietyCheckBoxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: red;
+}
+.varietySelection {
+  display: flex;
+  justify-content: center;
+}
+
+.p-multiselect {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.p-multiselect:hover {
+  background-color: transparent;
+}
+
+.p-multiselect:not(p.diabled).p-focus {
+  box-shadow: none;
 }
 </style>

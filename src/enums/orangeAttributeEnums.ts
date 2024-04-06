@@ -9,4 +9,5 @@ export enum OrangeAttributesEnum {
   color = "Color",
   variety = "Variety",
   blemshies = "Blemshies (Y/N)",
+  quality = "Quality (1-5)",
 }
