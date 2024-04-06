@@ -11,7 +11,7 @@
 </template>
 <script setup>
 import Panel from "primevue/panel";
-import { defineProps } from "vue";
+
 import LogoImage from "../assets/orangeLogo.png";
 import LogoImage2 from "../assets/website_logo.png";
 

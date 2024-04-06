@@ -25,7 +25,7 @@ const items = ref([
       {
         label: "Scatter",
         icon: "pi pi-chart-scatter",
-        command: () => router.push("/charts/scatter"), // Navigate to the scatter charts route
+        command: () => router.push("/Charts/Scatter"), // Navigate to the scatter charts route
       },
       {
         label: "Pie",
