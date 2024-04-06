@@ -17,30 +17,39 @@
       <p class="about-scatter-text">
         A scatter chart is like throwing a bunch of oranges onto a giant grid
         and seeing where they splatter. Each orange becomes a dot, with its
-        position showing its size and juiciness. If the bigger oranges cluster
-        towards the top right, they're the real juicy ones! But if the dots are
-        all over the place, size doesn't matter – you'll just have to squeeze
-        'em all to find out!
+        position showing its size and juiciness.
       </p>
       <div class="downMessage">
         <p class="header-keepScrolling-message">
-          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
-          every drop by scrolling Down!
+          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>
+          Squeeze every drop by scrolling Down!
           <span><img class="downImg" :src="arrowDown" alt="#" /> </span>
         </p>
       </div>
     </header>
     <div class="content">
-      <section>
+      <div class="varietyCheckBoxes"><div v-for="variety in allVarieties" :key="variety">
+        <input type="checkbox" :value="variety" v-model="selectedVarieties" />{{
+          variety
+        }}
+      </div></div>
+      
+      <div class="scatterCharts-container">
         <ScatterChart
-          :varieties="['Valencia', 'Navel']"
           :chartData="filteredOrangeData"
+          :xField="OrangeAttributesEnum.ripness"
+          :yField="OrangeAttributesEnum.ph"
           xAxisTitle="Size (cm)"
           yAxisTitle="Brix (Sweetness)"
-          :xField="'Size (cm)'"
-          :yField="'Brix (Sweetness)'"
         />
-      </section>
+        <ScatterChart
+          :chartData="filteredOrangeData"
+          :xField="OrangeAttributesEnum.size"
+          :yField="OrangeAttributesEnum.weight"
+          xAxisTitle="Size (cm)"
+          yAxisTitle="Brix (Sweetness)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -50,32 +59,46 @@ import orangeVideo3 from "../../assets/orangeVideo3.mp4";
 import arrowDown from "../../assets/arrowDown.png";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
+import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";
+import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
-import { ref, onMounted, computed } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 
 const videoElement = ref<HTMLVideoElement | null>(null);
-const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
+const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
 
-const orangeData = ref<IOrange[]>([]);
-const varieties = ["Valencia", "Navel"];
+const selectedVarieties = ref([]);
+const allVarieties = Object.values(OrangeVarietyEnum);
 
 const filteredOrangeData = computed(() => {
-  return varieties.map((variety) => ({
+  return selectedVarieties.value.map((variety) => ({
     variety,
-    data: OrangeDatSet.value.filter((orange) => orange.Variety === variety),
+    data: OrangeDataSet.value.filter((orange) => orange.Variety === variety),
+    color: getRandomColor(),
   }));
 });
-
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+// In your main component
 onMounted(() => {
-  OrangeDatSet.value.forEach((orange: IOrange) => {
-    orangeData.value.push(orange);
-  });
+  console.log("Dataset:", OrangeDataSet.value);
+});
+
+watch(selectedVarieties, (newVal) => {
+  console.log("Selected Varieties:", newVal);
 });
 </script>
+
+<style scoped></style>
 
 <style scoped>
 * {
   font-weight: 100;
+}
+.scatterCharts-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .header-keepScrolling-message {
@@ -89,6 +112,13 @@ onMounted(() => {
 .about-scatter-text {
   color: white;
   width: 40%;
+}
+
+.varietyCheckBoxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* This will allow the items to wrap into the next line if the space is not sufficient */
+  gap: 10px; /* Add some space between the checkboxes */
 }
 
 .downImg {

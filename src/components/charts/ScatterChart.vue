@@ -24,12 +24,11 @@ export default {
     Scatter,
   },
   props: {
-    varieties: Array,
     chartData: Array,
-    xAxisTitle: String,
-    yAxisTitle: String,
     xField: String,
     yField: String,
+    xAxisTitle: String,
+    yAxisTitle: String,
   },
   setup(props) {
     const { chartData, xField, yField, xAxisTitle, yAxisTitle } = toRefs(props);
@@ -42,6 +41,8 @@ export default {
           y: d[yField.value],
         })),
         pointRadius: 5,
+        backgroundColor: group.color,
+        borderColor: group.color,
       })),
     }));
 
@@ -57,3 +58,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.scatter {
+  width: 450px;
+  height: 450px;
+  display: flex;
+}
+</style>
