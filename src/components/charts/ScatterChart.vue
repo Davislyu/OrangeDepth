@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineProps, computed, toRefs } from "vue";
+import { defineProps, computed, toRefs, inject } from "vue";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -24,16 +24,16 @@ export default {
     Scatter,
   },
   props: {
-    chartData: Array,
     xField: String,
     yField: String,
   },
   setup(props) {
-    const { chartData, xField, yField } = toRefs(props);
-
+    const { xField, yField } = toRefs(props);
+    const filteredOrangeData = inject("filteredOrangeData");
     const ScatterData = computed(() => ({
-      datasets: chartData.value.map((group) => ({
+      datasets: filteredOrangeData.value.map((group) => ({
         label: group.variety,
+
         data: group.data.map((d) => ({
           x: d[xField.value],
           y: d[yField.value],
@@ -47,11 +47,11 @@ export default {
     const ScatterOptions = computed(() => ({
       scales: {
         x: {
-          title: { display: true, text: xField.value },
+          title: { display: true, text: xField.value, color: "white" },
           grid: { color: "gray" },
         },
         y: {
-          title: { display: true, text: yField.value },
+          title: { display: true, text: yField.value, color: "white" },
           grid: { color: "gray" },
         },
       },
@@ -66,7 +66,5 @@ export default {
 <style scoped>
 .scatter {
   width: 650px;
-  height: 650px;
-  display: flex;
 }
 </style>

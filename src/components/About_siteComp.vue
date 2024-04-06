@@ -48,7 +48,6 @@ const props = defineProps({
   line-height: 1.7rem;
 }
 .logo {
-  width: 600px;
-  height: 600px;
+  width: 70%;
 }
 </style>

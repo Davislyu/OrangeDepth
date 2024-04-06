@@ -29,6 +29,9 @@
     </header>
     <div class="content">
       <div class="varietySelection">
+        <h2 class="varietySelection-message">
+          Don't be a sour lemon, pick your orange varieties!
+        </h2>
         <MultiSelect
           v-model="selectedVarieties"
           :options="allVarieties"
@@ -40,21 +43,40 @@
 
       <div class="scatterCharts-container">
         <ScatterChart
-          :chartData="filteredOrangeData"
           :xField="OrangeAttributesEnum.ripness"
           :yField="OrangeAttributesEnum.brix"
         />
         <ScatterChart
-          :chartData="filteredOrangeData"
           :xField="OrangeAttributesEnum.harvestTime"
           :yField="OrangeAttributesEnum.ripness"
         />
         <ScatterChart
-          :chartData="filteredOrangeData"
           :xField="OrangeAttributesEnum.size"
           :yField="OrangeAttributesEnum.quality"
         />
+        <ScatterChart
+          :xField="OrangeAttributesEnum.ph"
+          :yField="OrangeAttributesEnum.brix"
+        />
+        <ScatterChart
+          :xField="OrangeAttributesEnum.softness"
+          :yField="OrangeAttributesEnum.ripness"
+        />
       </div>
+      <div class="charts-explanation">
+  <p class="explanation-text">
+    Dive into the zesty world of our scatter charts, where every dot tells a tantalizing tale of citrus saga! 🍊 Let's embark on a flavor-filled journey:
+    <ul>
+      <li><strong>Ripeness vs. Brix:</strong> Uncover the sweet secrets of citrus success. It's like matchmaking for your fruit bowl!</li>
+      <li><strong>Harvest Time vs. Ripeness:</strong> Witness the love story of time and tenderness, a chronicle of citrus serendipity.</li>
+      <li><strong>Size vs. Quality:</strong> Behold the grandeur of girth and greatness. Remember, in the orchard of opulence, every orange is outstanding!</li>
+      <li><strong>pH vs. Brix:</strong> Sip the science of sour and sweet, a tangy tango of taste that’s perfectly balanced.</li>
+      <li><strong>Softness vs. Ripeness:</strong> Feel the soft whispers of ripeness, where every squeeze tells a story.</li>
+    </ul>
+    Revel in the riot of colors and flavors as our charts peel away the mysteries of oranges, serving you the juiciest gossip from the grove!
+  </p>
+</div>
+
     </div>
   </div>
 </template>
@@ -67,7 +89,7 @@ import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";
 import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, provide } from "vue";
 import MultiSelect from "primevue/multiselect";
 
 const videoElement = ref<HTMLVideoElement | null>(null);
@@ -92,22 +114,59 @@ const filteredOrangeData = computed(() => {
     };
   });
 });
+provide("filteredOrangeData", filteredOrangeData);
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-// In your main component
-onMounted(() => {
-  console.log("Dataset:", OrangeDataSet.value);
-});
-
-watch(selectedVarieties, (newVal) => {
-  console.log("Selected Varieties:", newVal);
-});
 </script>
 
 <style scoped>
 * {
   font-weight: 100;
+}
+.varietySelection-message {
+  
+  color: gray;
+}
+.charts-explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.explanation-text {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.explanation-text ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.explanation-text li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.4rem;
+  text-indent: -0.7rem;
+}
+
+.explanation-text li::before {
+  content: '🍊';
+  padding-right: 10px;
+}
+
+.explanation-text strong {
+  color: #000d1a;
+  font-size: 1.3rem;
 }
 
 .header-keepScrolling-message {
@@ -220,6 +279,8 @@ watch(selectedVarieties, (newVal) => {
   z-index: 1;
 }
 .content {
+  width: 100%;
+  padding: 1rem;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.6) 0%,
@@ -244,12 +305,17 @@ watch(selectedVarieties, (newVal) => {
 }
 .varietySelection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
 }
 
 .p-multiselect {
   background-color: transparent;
   border: 1px solid transparent;
+    max-width: 100%; 
 }
 
 .p-multiselect:hover {
@@ -259,4 +325,5 @@ watch(selectedVarieties, (newVal) => {
 .p-multiselect:not(p.diabled).p-focus {
   box-shadow: none;
 }
+
 </style>
