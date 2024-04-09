@@ -4,19 +4,19 @@
 
 <script setup>
 import Menubar from "primevue/menubar";
-import { useRouter } from "vue-router"; // Import useRouter from Vue Router
+import { useRouter } from "vue-router";
 import { ref } from "vue";
-const router = useRouter(); // Create a router instance
+const router = useRouter();
 const items = ref([
   {
     label: "Home",
     icon: "pi pi-home",
-    command: () => router.push("/"), // Use router.push to navigate to the home route
+    command: () => router.push("/"),
   },
   {
     label: "Dataset",
     icon: "pi pi-table",
-    command: () => router.push("/dataset"), // Navigate to the dataset route
+    command: () => router.push("/dataset"),
   },
   {
     label: "Charts",
@@ -25,18 +25,18 @@ const items = ref([
       {
         label: "Scatter",
         icon: "pi pi-chart-scatter",
-        command: () => router.push("/Charts/Scatter"), // Navigate to the scatter charts route
+        command: () => router.push("/Charts/Scatter"),
       },
       {
         label: "Pie",
         icon: "pi pi-chart-pie",
         color: "red",
-        command: () => router.push("/charts/pie"),
+        command: () => router.push("/charts/Pie"),
       },
       {
         label: "Line",
         icon: "pi pi-chart-line",
-        command: () => router.push("/charts/line"),
+        command: () => router.push("/charts/Line"),
       },
       {
         label: "Bar",

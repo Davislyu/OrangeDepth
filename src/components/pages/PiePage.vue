@@ -1,9 +1,9 @@
 <template>
   <div class="homepage-container">
     <header class="header-container">
-      <h1 class="header-title">OrangeScatter°</h1>
+      <h1 class="header-title">OrangePie°</h1>
       <video
-        :src="orangeVideo3"
+        :src="orangeVideo4"
         autoplay
         muted
         loop
@@ -16,9 +16,7 @@
 
       <div class="overlay"></div>
       <p class="about-scatter-text">
-        A scatter chart is like throwing a bunch of oranges onto a giant grid
-        and seeing where they splatter. Each orange becomes a dot, with its
-        position showing its size and juiciness.
+        A pie chart is like slicing up an orange into different wedges, with each piece representing a distinct flavor found within the fruit. Each wedge of the pie chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile.
       </p>
       <div class="downMessage">
         <p class="header-keepScrolling-message">
@@ -83,7 +81,7 @@
 </template>
 
 <script lang="ts" setup>
-import orangeVideo3 from "../../assets/orangeVideo3.mp4";
+import orangeVideo4 from "../../assets/orangeVideo4.mp4";
 import arrowDown from "../../assets/arrowDown.png";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
