@@ -98,8 +98,18 @@ interface VarietyOption {
   name: string;
 }
 
+interface VarietyOption {
+  name: string;
+}
+
 const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
-const selectedVarieties = ref<VarietyOption[]>([]);
+
+
+const defaultVarieties = [OrangeVarietyEnum.Jaffa, OrangeVarietyEnum.BloodOrange,OrangeVarietyEnum.Hamlin];
+const selectedVarieties = ref<VarietyOption[]>(
+  defaultVarieties.map(variety => ({ name: variety }))
+);
+
 const allVarieties = ref(
   Object.values(OrangeVarietyEnum).map((variety) => ({ name: variety }))
 );
@@ -116,6 +126,7 @@ const filteredOrangeData = computed(() => {
   });
 });
 provide("filteredOrangeData", filteredOrangeData);
+
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }

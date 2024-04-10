@@ -1,7 +1,7 @@
 <template>
   <div class="homepage-container">
     <header class="header-container">
-      <h1 class="header-title">OrangePie°</h1>
+      <h1 class="header-title">OrangeDoughnut°</h1>
       <video
         :src="orangeVideo4"
         autoplay
@@ -16,7 +16,13 @@
 
       <div class="overlay"></div>
       <p class="about-scatter-text">
-        A pie chart is like slicing up an orange into different wedges, with each piece representing a distinct flavor found within the fruit. Each wedge of the pie chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile.
+        A Doughnut chart is like slicing up an orange into different wedges,
+        with each Doughnutce representing a distinct flavor found within the
+        fruit. Each wedge of the Doughnut chart is like a unique taste of the
+        orange, showing how sweet, sour, or tangy each section is in comparison
+        to the whole. The size of each slice reveals the proportion of that
+        flavor, giving a visual taste test of the orange's diverse flavor
+        profile.
       </p>
       <div class="downMessage">
         <p class="header-keepScrolling-message">
@@ -41,41 +47,45 @@
       </div>
 
       <div class="scatterCharts-container">
-        <ScatterChart
-          :xField="OrangeAttributesEnum.ripness"
-          :yField="OrangeAttributesEnum.brix"
-        />
-        <ScatterChart
-          :xField="OrangeAttributesEnum.harvestTime"
-          :yField="OrangeAttributesEnum.ripness"
-        />
-        <ScatterChart
-          :xField="OrangeAttributesEnum.size"
-          :yField="OrangeAttributesEnum.quality"
-        />
-        <ScatterChart
-          :xField="OrangeAttributesEnum.ph"
-          :yField="OrangeAttributesEnum.brix"
-        />
-        <ScatterChart
-          :xField="OrangeAttributesEnum.softness"
-          :yField="OrangeAttributesEnum.ripness"
-        />
+        <DoughnutChart :Field="OrangeAttributesEnum.quality" />
+        <DoughnutChart :Field="OrangeAttributesEnum.color" />
+        <DoughnutChart :Field="OrangeAttributesEnum.ripness" />
+        <DoughnutChart :Field="OrangeAttributesEnum.softness" />
       </div>
       <div class="charts-explanation">
-  <p class="explanation-text">
-    Dive into the zesty world of our scatter charts, where every dot tells a tantalizing tale of citrus saga! 🍊 Let's embark on a flavor-filled journey:
-    <ul class="summary-list" >
-      <li><strong>Ripeness vs. Brix:</strong> Uncover the sweet secrets of citrus success. It's like matchmaking for your fruit bowl!</li>
-      <li><strong>Harvest Time vs. Ripeness:</strong> Witness the love story of time and tenderness, a chronicle of citrus serendipity.</li>
-      <li><strong>Size vs. Quality:</strong> Behold the grandeur of girth and greatness. Remember, in the orchard of opulence, every orange is outstanding!</li>
-      <li><strong>pH vs. Brix:</strong> Sip the science of sour and sweet, a tangy tango of taste that’s perfectly balanced.</li>
-      <li><strong>Softness vs. Ripeness:</strong> Feel the soft whispers of ripeness, where every squeeze tells a story.</li>
-    </ul>
-    Revel in the riot of colors and flavors as our charts peel away the mysteries of oranges, serving you the juiciest gossip from the grove!
-  </p>
-</div>
+        <p class="explanation-text">
+          Explore the flavorful world of our Doughnut charts, where each slice
+          reveals the juicy secrets of oranges! 🍊 Delight in the vibrant
+          tapestry of citrus varieties and tastes.
+        </p>
+        <ul class="summary-list">
+          <li>
+            <strong>Quality Distribution:</strong> Explore the spectrum of
+            quality across our orange varieties, revealing the high standards
+            and meticulous care in every segment.
+          </li>
+          <li>
+            <strong>Color Diversity:</strong> Feast your eyes on the colorful
+            palette of nature as we dissect the hues, from the deep greens of
+            unripe fruit to the vibrant oranges of peak ripeness.
+          </li>
+          <li>
+            <strong>Ripeness Levels:</strong> Gauge the stages of maturity and
+            readiness for consumption, showing how each variety progresses from
+            tart to tantalizingly sweet.
+          </li>
 
+          <li>
+            <strong>Softness Spectrum:</strong> Feel the texture range with a
+            visual touch, illustrating the journey from firm to tender as each
+            orange reaches its peak softness.
+          </li>
+        </ul>
+        <p>
+          Revel in the riot of colors and flavors as our charts peel away the
+          mysteries of oranges, serving you the juiciest gossip from the grove!
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -83,7 +93,7 @@
 <script lang="ts" setup>
 import orangeVideo4 from "../../assets/orangeVideo4.mp4";
 import arrowDown from "../../assets/arrowDown.png";
-import ScatterChart from "../../components/charts/ScatterChart.vue";
+import DoughnutChart from "../../components/charts/DoughnutChart.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";
 import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
@@ -97,7 +107,12 @@ interface VarietyOption {
 }
 
 const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
-const selectedVarieties = ref<VarietyOption[]>([]);
+
+const defaultVarieties = [OrangeVarietyEnum.Jaffa];
+const selectedVarieties = ref<VarietyOption[]>(
+  defaultVarieties.map((variety) => ({ name: variety }))
+);
+
 const allVarieties = ref(
   Object.values(OrangeVarietyEnum).map((variety) => ({ name: variety }))
 );
@@ -114,6 +129,7 @@ const filteredOrangeData = computed(() => {
   });
 });
 provide("filteredOrangeData", filteredOrangeData);
+
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
@@ -124,7 +140,6 @@ function getRandomColor() {
   font-weight: 100;
 }
 .varietySelection-message {
-  
   color: gray;
 }
 .charts-explanation {
@@ -159,7 +174,7 @@ function getRandomColor() {
 }
 
 .explanation-text li::before {
-  content: '🍊';
+  content: "🍊";
   padding-right: 10px;
 }
 
@@ -308,13 +323,12 @@ function getRandomColor() {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
 }
 
 .p-multiselect {
   background-color: transparent;
   border: 1px solid transparent;
-    max-width: 100%; 
+  max-width: 100%;
 }
 
 .p-multiselect:hover {
@@ -324,11 +338,9 @@ function getRandomColor() {
 .p-multiselect:not(p.diabled).p-focus {
   box-shadow: none;
 }
-.summary-list{
+.summary-list {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  
 }
-
 </style>

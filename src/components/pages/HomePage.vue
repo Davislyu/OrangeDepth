@@ -54,7 +54,7 @@
           <p>
             Discover our exclusive AI-generated merchandise collection, where
             the zest of oranges meets the precision of data charts! Dive into a
-            wardrobe where every piece is a splash of citrus sunshine,
+            wardrobe where every Doughnutce is a splash of citrus sunshine,
             meticulously blended with the analytical prowess of data
             visualization. Our clothing line is not just apparel; it's a
             statement for those who revel in the tangy touch of oranges and the

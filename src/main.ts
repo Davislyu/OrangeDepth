@@ -10,14 +10,14 @@ import HomePage from "./components/pages/HomePage.vue";
 import Dataset from "./components/pages/DatasetPage.vue";
 import { AgGridVue } from "ag-grid-vue3";
 import Scatterpage from "./components/pages/Scatterpage.vue";
-import PiePage from "./components/pages/PiePage.vue";
+import DoughnutPage from "./components/pages/DoughnutPage.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", component: HomePage },
     { path: "/Dataset", component: Dataset },
     { path: "/Charts/Scatter", component: Scatterpage },
-    { path: "/Charts/Pie", component: PiePage },
+    { path: "/Charts/Doughnut", component: DoughnutPage },
   ],
 });
 const app = createApp(App);

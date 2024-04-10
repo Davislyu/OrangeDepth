@@ -1,4 +1,5 @@
 export interface IOrange {
+  [x: string]: any;
   "Size (cm)": number;
   "Weight (g)": number;
   "Brix (Sweetness)": number;

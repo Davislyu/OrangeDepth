@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineProps, computed, toRefs, inject } from "vue";
+import { computed, toRefs, inject, Ref } from "vue";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -15,6 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import { Scatter } from "vue-chartjs";
+import { IOrange } from "../../interfaces/OrangeInterface"; // Ensure this is the correct path
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
@@ -29,19 +30,27 @@ export default {
   },
   setup(props) {
     const { xField, yField } = toRefs(props);
-    const filteredOrangeData = inject("filteredOrangeData");
-    const ScatterData = computed(() => ({
-      datasets: filteredOrangeData.value.map((group) => ({
-        label: group.variety,
+    const filteredOrangeData = inject<Ref<IOrange[]>>("filteredOrangeData");
 
-        data: group.data.map((d) => ({
-          x: d[xField.value],
-          y: d[yField.value],
-        })),
-        pointRadius: 5,
-        backgroundColor: group.color,
-        borderColor: group.color,
-      })),
+    if (!filteredOrangeData) {
+      throw new Error("filteredOrangeData is not provided");
+    }
+
+    const ScatterData = computed(() => ({
+      datasets: filteredOrangeData.value.map((group) => {
+        return {
+          label: group.variety,
+          data: group.data.map((d: { [x: string]: any }) => ({
+            x: d[xField.value as keyof IOrange],
+            y: d[yField.value as keyof IOrange],
+          })),
+          pointRadius: 5,
+          backgroundColor: group.data.map(
+            () => `hsl(${Math.random() * 360}, 100%, 75%)`
+          ),
+          borderColor: group.Color,
+        };
+      }),
     }));
 
     const ScatterOptions = computed(() => ({
@@ -53,6 +62,13 @@ export default {
         y: {
           title: { display: true, text: yField.value, color: "white" },
           grid: { color: "gray" },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: "white",
+          },
         },
       },
       responsive: true,

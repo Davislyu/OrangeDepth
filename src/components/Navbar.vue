@@ -28,10 +28,10 @@ const items = ref([
         command: () => router.push("/Charts/Scatter"),
       },
       {
-        label: "Pie",
+        label: "Doughnut",
         icon: "pi pi-chart-pie",
         color: "red",
-        command: () => router.push("/charts/Pie"),
+        command: () => router.push("/charts/Doughnut"),
       },
       {
         label: "Line",
