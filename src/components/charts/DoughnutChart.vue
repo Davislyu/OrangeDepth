@@ -35,36 +35,42 @@ export default defineComponent({
     if (!filteredOrangeData) {
       throw new Error("filteredOrangeData is not provided");
     }
-    const DoughnutData = computed<ChartData>(() => {
-      const fieldData = filteredOrangeData.value.flatMap((group) =>
-        group.data.map((item) => item[Field.value])
-      );
-      const counts = fieldData.reduce((acc, value) => {
-        acc[value] = (acc[value] || 0) + 1;
+    const DoughnutData = computed<ChartData<"doughnut", number[], unknown>>(
+      () => {
+        const fieldData = filteredOrangeData.value.flatMap((group) =>
+          group.data.map((item: IOrange) => item[Field.value])
+        );
 
-        return acc;
-      }, {});
-
-      const labels = Object.keys(counts);
-      const data = Object.values(counts);
-      const backgroundColors = labels.map(
-        () =>
-          `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(
-            Math.random() * 255
-          )}, ${Math.floor(Math.random() * 255)}, 0.5)` // 0.5 is the opacity level
-      );
-
-      return {
-        labels,
-        datasets: [
-          {
-            data,
-            backgroundColor: backgroundColors,
-            borderWidth: 0.8,
+        const counts = fieldData.reduce(
+          (acc: Record<string, number>, value) => {
+            const key = value.toString();
+            acc[key] = (acc[key] || 0) + 1;
+            return acc;
           },
-        ],
-      };
-    });
+          {}
+        );
+
+        const labels = Object.keys(counts);
+        const data = Object.values(counts).map(Number);
+        const backgroundColors = labels.map(
+          () =>
+            `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(
+              Math.random() * 255
+            )}, ${Math.floor(Math.random() * 255)}, 0.5)`
+        );
+
+        return {
+          labels,
+          datasets: [
+            {
+              data,
+              backgroundColor: backgroundColors,
+              borderWidth: 0.8,
+            },
+          ],
+        };
+      }
+    );
 
     const DoughnutOptions = computed<ChartOptions<"doughnut">>(() => ({
       responsive: true,

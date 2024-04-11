@@ -33,15 +33,11 @@ const items = ref([
         color: "red",
         command: () => router.push("/charts/Doughnut"),
       },
-      {
-        label: "Line",
-        icon: "pi pi-chart-line",
-        command: () => router.push("/charts/Line"),
-      },
+
       {
         label: "Bar",
         icon: "pi pi-chart-bar",
-        command: () => router.push("/charts/bar"),
+        command: () => router.push("/charts/Bar"),
       },
     ],
   },

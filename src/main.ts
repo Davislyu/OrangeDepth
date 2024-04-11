@@ -11,6 +11,7 @@ import Dataset from "./components/pages/DatasetPage.vue";
 import { AgGridVue } from "ag-grid-vue3";
 import Scatterpage from "./components/pages/Scatterpage.vue";
 import DoughnutPage from "./components/pages/DoughnutPage.vue";
+import BarChart from "./components/pages/BarPage.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -18,6 +19,7 @@ const router = createRouter({
     { path: "/Dataset", component: Dataset },
     { path: "/Charts/Scatter", component: Scatterpage },
     { path: "/Charts/Doughnut", component: DoughnutPage },
+    { path: "/Charts/Bar", component: BarChart },
   ],
 });
 const app = createApp(App);

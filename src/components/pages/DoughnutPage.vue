@@ -48,9 +48,9 @@
 
       <div class="scatterCharts-container">
         <DoughnutChart :Field="OrangeAttributesEnum.quality" />
-        <DoughnutChart :Field="OrangeAttributesEnum.color" />
-        <DoughnutChart :Field="OrangeAttributesEnum.ripness" />
         <DoughnutChart :Field="OrangeAttributesEnum.softness" />
+        <DoughnutChart :Field="OrangeAttributesEnum.ripness" />
+        <DoughnutChart :Field="OrangeAttributesEnum.color" />
       </div>
       <div class="charts-explanation">
         <p class="explanation-text">
