@@ -25,6 +25,7 @@ import DoughnutChart from "../../components/charts/DoughnutChart.vue";
 import {
   VarietySelection,
   ChartExplanationComp,
+  IChartExplanationObj,
   HeaderComp,
   reactive,
   OrangeDataSetJson,
@@ -71,7 +72,7 @@ function getRandomColor() {
 const AboutText = ref<string>(
   "A Doughnut chart is like slicing up an orange into different wedges,with each Doughnutce representing a distinct flavor found within the fruit. Each wedge of the Doughnut chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile."
 );
-const ChartExplanationObj = reactive({
+const ChartExplanationObj = reactive<IChartExplanationObj>({
   explanationText:
     "Explore the flavorful world of our Doughnut charts, where each slice reveals the juicy secrets of oranges! 🍊 Delight in the vibrant tapestry of citrus varieties and tastes.",
   summaryList: [

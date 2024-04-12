@@ -26,6 +26,7 @@ import BarChart from "../../components/charts/BarChart.vue";
 //General imports
 import {
   VarietySelection,
+  IChartExplanationObj,
   reactive,
   ChartExplanationComp,
   HeaderComp,
@@ -80,7 +81,7 @@ function getRandomColor() {
 const AboutText = ref<string>(
   "A Bar chart is like stacking up slices of an orange, with each bar representing a distinct flavor found within the fruit. Each bar in the Bar chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the others. The height of each bar reveals the proportion of that flavor, giving a visual representation of the orange's diverse flavor profile."
 );
-const chartExplanationObj = reactive({
+const chartExplanationObj = reactive<IChartExplanationObj>({
   explanationText:
     "Explore the flavorful world of our Bar charts, where each bar reveals the juicy secrets of oranges! 🍊 Delight in the vibrant tapestry of citrus varieties and tastes.",
   summaryList: [

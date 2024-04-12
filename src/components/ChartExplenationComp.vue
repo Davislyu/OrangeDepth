@@ -13,9 +13,11 @@
 </template>
 
 <script setup lang="ts">
+import { IChartExplanationObj } from "../index.ts";
+import { PropType } from "vue";
 const props = defineProps({
   ChartExplanationObj: {
-    type: Object,
+    type: Object as PropType<IChartExplanationObj>,
     default: {},
   },
 });

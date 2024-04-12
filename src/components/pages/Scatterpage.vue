@@ -37,7 +37,7 @@
 <script lang="ts" setup>
 import orangeVideo3 from "../../assets/orangeVideo3.mp4";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
-const chartExplanationObj = reactive({
+const chartExplanationObj = reactive<IChartExplanationObj>({
   explanationText:
     "Dive into the zesty world of our scatter charts, where every dot tells a tantalizing tale of citrus saga! 🍊 Let's embark on a flavor-filled journey:",
   summaryList: [
@@ -74,6 +74,7 @@ const chartExplanationObj = reactive({
 import {
   VarietySelection,
   ChartExplanationComp,
+  IChartExplanationObj,
   HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,

@@ -5,6 +5,7 @@ export { OrangeVarietyEnum } from "./enums/orangeVarietyEnums";
 export { OrangeAttributesEnum } from "./enums/orangeAttributeEnums";
 export { default as HeaderComp } from "./components/HeaderComp.vue";
 export type { IOrange } from "./interfaces/OrangeInterface";
+export type { IChartExplanationObj } from "./interfaces/chartExplanationObjInterface";
 export { ref, computed, provide, onMounted, reactive } from "vue";
 export { default as MultiSelect } from "primevue/multiselect";
 export { default as AboutChart } from "./components/AboutChart.vue";
