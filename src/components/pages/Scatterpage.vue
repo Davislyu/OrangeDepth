@@ -6,18 +6,8 @@
       </template>
     </HeaderComp>
     <div class="content">
-      <div class="varietySelection">
-        <h2 class="varietySelection-message">
-          Don't be a sour lemon, pick your orange varieties!
-        </h2>
-        <MultiSelect
-          v-model="selectedVarieties"
-          :options="allVarieties"
-          optionLabel="name"
-          placeholder="Select varieties"
-          display="chip"
-        />
-      </div>
+      <VarietySelection v-model="selectedVarieties" :options="allVarieties" />
+
 
       <div class="scatterCharts-container">
         <ScatterChart
@@ -63,6 +53,8 @@
 import orangeVideo3 from "../../assets/orangeVideo3.mp4";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
 import {
+    VarietySelection,
+
   HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,
@@ -118,10 +110,7 @@ const AboutText = ref<string>("        A scatter chart is like throwing a bunch 
 * {
   font-weight: 100;
 }
-.varietySelection-message {
-  
-  color: gray;
-}
+
 .charts-explanation {
   display: flex;
   flex-direction: column;
@@ -203,35 +192,10 @@ const AboutText = ref<string>("        A scatter chart is like throwing a bunch 
   gap: 5rem;
   margin-top: 1rem;
 }
-.varietyCheckBoxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-  background: red;
-}
-.varietySelection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  
-}
 
-.p-multiselect {
-  background-color: transparent;
-  border: 1px solid transparent;
-    max-width: 100%; 
-}
 
-.p-multiselect:hover {
-  background-color: transparent;
-}
 
-.p-multiselect:not(p.diabled).p-focus {
-  box-shadow: none;
-}
+
 .summary-list {
   list-style: none;
   padding: 0;

@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref, defineProps } from "vue";
-import { KeepScrollingComp } from "../index"; // Adjust the import path as needed
+import { KeepScrollingComp } from "../index";
 
 const props = defineProps({
   title: String,
@@ -88,7 +88,7 @@ const videoElement = ref<HTMLVideoElement | null>(null);
   padding: 2px;
   position: relative;
   color: #fff;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 100;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;

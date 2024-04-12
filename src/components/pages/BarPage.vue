@@ -6,18 +6,7 @@
       </template>
     </HeaderComp>
     <div class="content">
-      <div class="varietySelection">
-        <h2 class="varietySelection-message">
-          Don't be a sour lemon, pick your orange varieties!
-        </h2>
-        <MultiSelect
-          v-model="selectedVarieties"
-          :options="allVarieties"
-          optionLabel="name"
-          placeholder="Select varieties"
-          display="chip"
-        />
-      </div>
+      <VarietySelection v-model="selectedVarieties" :options="allVarieties" />
 
       <div class="scatterCharts-container">
         <BarChart :Field="OrangeAttributesEnum.quality" />
@@ -75,6 +64,7 @@ import orangeVideo5 from "../../assets/orangeVideo5.mp4";
 import BarChart from "../../components/charts/BarChart.vue";
 //General imports
 import {
+  VarietySelection,
   HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,
@@ -83,7 +73,6 @@ import {
   ref,
   computed,
   provide,
-  MultiSelect,
   AboutChart,
 } from "../../index.ts";
 
@@ -162,16 +151,6 @@ const AboutText = ref<string>(
   backdrop-filter: blur(90px);
 }
 
-.varietySelection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.varietySelection-message {
-  color: gray;
-}
-
 .scatterCharts-container {
   display: flex;
   flex-wrap: wrap;
@@ -218,19 +197,5 @@ const AboutText = ref<string>(
 .summary-list strong {
   color: #dbaf11;
   font-size: 1.3rem;
-}
-
-.p-multiselect {
-  background-color: transparent;
-  border: 1px solid transparent;
-  max-width: 100%;
-}
-
-.p-multiselect:hover {
-  background-color: transparent;
-}
-
-.p-multiselect:not(p.disabled).p-focus {
-  box-shadow: none;
 }
 </style>
