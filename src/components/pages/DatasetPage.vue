@@ -1,23 +1,10 @@
 <template>
   <div class="homepage-container">
-    <header class="header-container">
-      <h1 class="header-title">OrangeDataset°</h1>
-      <video
-        :src="orangeVideo"
-        autoplay
-        muted
-        loop
-        class="video-background"
-        playsinline
-        ref="videoElement"
-      >
-        Your browser does not support the video tag.
-      </video>
-
-      <div class="overlay"></div>
-      <AboutChart :AboutText="AboutText" />
-      <KeepScrollingComp />
-    </header>
+    <HeaderComp title="OrangeDataset°" :videoSource="orangeVideo">
+      <template v-slot:extra-content>
+        <AboutChart :AboutText="AboutText" />
+      </template>
+    </HeaderComp>
     <div class="content">
       <OrangeGrid :colDefs="colDefs" :rowData="rowData" />
     </div>
@@ -29,14 +16,12 @@ import orangeVideo from "../../assets/orangeVideo2.mp4";
 import OrangeGrid from "../OrangeGrid.vue";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
 import {
-  KeepScrollingComp,
+  HeaderComp,
   OrangeDataSetJson,
   IOrange,
   ref,
   AboutChart,
 } from "../../index.ts";
-
-const videoElement = ref<HTMLVideoElement | null>(null);
 
 const rowData = ref(OrangeDatSet.value);
 

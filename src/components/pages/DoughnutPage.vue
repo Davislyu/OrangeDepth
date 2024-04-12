@@ -1,23 +1,10 @@
 <template>
   <div class="homepage-container">
-    <header class="header-container">
-      <h1 class="header-title">OrangeDoughnut°</h1>
-      <video
-        :src="orangeVideo4"
-        autoplay
-        muted
-        loop
-        class="video-background"
-        playsinline
-        ref="videoElement"
-      >
-        Your browser does not support the video tag.
-      </video>
-
-      <div class="overlay"></div>
-      <AboutChart :AboutText="AboutText" />
-      <KeepScrollingComp />
-    </header>
+    <HeaderComp title="OrangeDoughnut°" :videoSource="orangeVideo4">
+      <template v-slot:extra-content>
+        <AboutChart :AboutText="AboutText" />
+      </template>
+    </HeaderComp>
     <div class="content">
       <div class="varietySelection">
         <h2 class="varietySelection-message">
@@ -80,7 +67,7 @@
 import orangeVideo4 from "../../assets/orangeVideo4.mp4";
 import DoughnutChart from "../../components/charts/DoughnutChart.vue";
 import {
-  KeepScrollingComp,
+  HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,
   OrangeAttributesEnum,

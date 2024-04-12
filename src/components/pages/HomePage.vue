@@ -1,22 +1,10 @@
 <template>
   <div class="homepage-container">
-    <header class="header-container">
-      <h1 class="header-title">OrangeDepth°</h1>
-      <video
-        :src="orangeVideo"
-        autoplay
-        muted
-        loop
-        class="video-background"
-        playsinline
-        ref="videoElement"
-      >
-        Your browser does not support the video tag.
-      </video>
-      <div class="overlay"></div>
-      <AboutChart :AboutText="AboutText" />
-      <KeepScrollingComp />
-    </header>
+    <HeaderComp title="OrangeDepth°" :videoSource="orangeVideo">
+      <template v-slot:extra-content>
+        <AboutChart :AboutText="AboutText" />
+      </template>
+    </HeaderComp>
     <div class="content">
       <About_siteComp :about_text="aboutSiteText" />
       <div class="facts-container">
@@ -67,7 +55,7 @@ import About_siteComp from "../About_siteComp.vue";
 import * as clothingImages from "../../assets/clothing";
 
 import {
-  KeepScrollingComp,
+  HeaderComp,
   ref,
   computed,
   AboutChart,

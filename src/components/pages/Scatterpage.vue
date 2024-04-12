@@ -1,23 +1,10 @@
 <template>
   <div class="homepage-container">
-    <header class="header-container">
-      <h1 class="header-title">OrangeScatter°</h1>
-      <video
-        :src="orangeVideo3"
-        autoplay
-        muted
-        loop
-        class="video-background"
-        playsinline
-        ref="videoElement"
-      >
-        Your browser does not support the video tag.
-      </video>
-
-      <div class="overlay"></div>
-<AboutChart :AboutText="AboutText" />
-      <KeepScrollingComp/>
-    </header>
+    <HeaderComp title="OrangeScatter°" :videoSource="orangeVideo3">
+      <template v-slot:extra-content>
+        <AboutChart :AboutText="AboutText" />
+      </template>
+    </HeaderComp>
     <div class="content">
       <div class="varietySelection">
         <h2 class="varietySelection-message">
@@ -76,7 +63,7 @@
 import orangeVideo3 from "../../assets/orangeVideo3.mp4";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
 import {
-  KeepScrollingComp,
+  HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,
   OrangeAttributesEnum,
@@ -87,7 +74,6 @@ import {
   MultiSelect,
   AboutChart,
 } from "../../index.ts";
-const videoElement = ref<HTMLVideoElement | null>(null);
 interface VarietyOption {
   name: string;
 }
