@@ -14,13 +14,7 @@
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
-      <p class="welcome-dataset-text">
-        Welcome to a zestful realm where data crunching meets citrus punch!
-        Here, numbers are juicier, and insights come with a twist of orange. We
-        serve up fresh, tangy data in a fun, flavorful way, making analytics an
-        adventure in taste and knowledge. Get ready to peel back the layers of
-        information and discover the sweet core of citrus-powered data!
-      </p>
+      <AboutChart :AboutText="AboutText" />
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
@@ -62,21 +56,7 @@
           </p>
         </div>
         <div class="caruselle-container">
-          <CaruselleComp
-            :images="[
-              clothingImages.shirt,
-              clothingImages.shirt2,
-              clothingImages.shirt3,
-              clothingImages.shirt4,
-              clothingImages.shoes,
-              clothingImages.shoes2,
-              clothingImages.shoes3,
-              clothingImages.socks,
-              clothingImages.hat,
-              clothingImages.umbrella,
-              clothingImages.pants,
-            ]"
-          />
+          <CaruselleComp :images="caruselleImagesArray" />
         </div>
       </div>
     </div>
@@ -93,7 +73,7 @@ import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
 import arrowDown from "../../assets/arrowDown.png";
 import * as clothingImages from "../../assets/clothing";
-
+import AboutChart from "../AboutChart.vue";
 const videoElement = ref<HTMLVideoElement | null>(null);
 const currentPage = ref(0);
 const pageSize = 3;
@@ -160,6 +140,19 @@ const paginatedFacts = computed(() => {
   const start = currentPage.value * pageSize;
   return facts.slice(start, start + pageSize);
 });
+const caruselleImagesArray = reactive([
+  clothingImages.shirt,
+  clothingImages.shirt2,
+  clothingImages.shirt3,
+  clothingImages.shirt4,
+  clothingImages.shoes,
+  clothingImages.shoes2,
+  clothingImages.shoes3,
+  clothingImages.socks,
+  clothingImages.hat,
+  clothingImages.umbrella,
+  clothingImages.pants,
+]);
 onMounted(() => {
   if (videoElement.value) {
     videoElement.value.playbackRate = 0.8;
@@ -173,6 +166,9 @@ function nextPage() {
     currentPage.value = 0;
   }
 }
+const AboutText = ref<string>(
+  "        Welcome to a zestful realm where data crunching meets citrus punch!Here, numbers are juicier, and insights come with a twist of orange. Weserve up fresh, tangy data in a fun, flavorful way, making analytics anadventure in taste and knowledge. Get ready to peel back the layers ofinformation and discover the sweet core of citrus-powered data!"
+);
 </script>
 
 <style scoped>
@@ -191,11 +187,6 @@ function nextPage() {
 .downImg {
   width: 35px;
   height: 35px;
-}
-
-.welcome-dataset-text {
-  color: white;
-  width: 40%;
 }
 
 .downMessage {

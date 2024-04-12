@@ -15,15 +15,7 @@
       </video>
 
       <div class="overlay"></div>
-      <p class="about-scatter-text">
-        A Doughnut chart is like slicing up an orange into different wedges,
-        with each Doughnutce representing a distinct flavor found within the
-        fruit. Each wedge of the Doughnut chart is like a unique taste of the
-        orange, showing how sweet, sour, or tangy each section is in comparison
-        to the whole. The size of each slice reveals the proportion of that
-        flavor, giving a visual taste test of the orange's diverse flavor
-        profile.
-      </p>
+      <AboutChart :AboutText="AboutText" />
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>
@@ -100,7 +92,7 @@ import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
 import { ref, computed, provide } from "vue";
 import MultiSelect from "primevue/multiselect";
-
+import AboutChart from "../AboutChart.vue";
 const videoElement = ref<HTMLVideoElement | null>(null);
 interface VarietyOption {
   name: string;
@@ -133,6 +125,9 @@ provide("filteredOrangeData", filteredOrangeData);
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+const AboutText = ref<string>(
+  "        A Doughnut chart is like slicing up an orange into different wedges,with each Doughnutce representing a distinct flavor found within the fruit. Each wedge of the Doughnut chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile."
+);
 </script>
 
 <style scoped>

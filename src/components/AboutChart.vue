@@ -1,0 +1,20 @@
+<template>
+  <p class="about-chart-text">
+    {{ props.AboutText }}
+  </p>
+</template>
+<script lang="ts" setup>
+const props = defineProps({
+  AboutText: {
+    required: true,
+    default: "",
+  },
+});
+</script>
+
+<style scoped>
+.about-chart-text {
+  color: white;
+  width: 40%;
+}
+</style>

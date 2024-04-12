@@ -15,14 +15,7 @@
       </video>
 
       <div class="overlay"></div>
-      <p class="about-scatter-text">
-        A Bar chart is like stacking up slices of an orange, with each bar
-        representing a distinct flavor found within the fruit. Each bar in the
-        Bar chart is like a unique taste of the orange, showing how sweet, sour,
-        or tangy each section is in comparison to the others. The height of each
-        bar reveals the proportion of that flavor, giving a visual
-        representation of the orange's diverse flavor profile.
-      </p>
+      <AboutChart :AboutText="AboutText" />
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>
@@ -105,6 +98,7 @@ import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
 import { ref, computed, provide } from "vue";
 import MultiSelect from "primevue/multiselect";
+import AboutChart from "../../components/AboutChart.vue";
 
 const videoElement = ref<HTMLVideoElement | null>(null);
 interface VarietyOption {
@@ -145,6 +139,9 @@ provide("filteredOrangeData", filteredOrangeData);
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+const AboutText = ref<string>(
+  "A Bar chart is like stacking up slices of an orange, with each bar representing a distinct flavor found within the fruit. Each bar in the Bar chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the others. The height of each bar reveals the proportion of that flavor, giving a visual representation of the orange's diverse flavor profile."
+);
 </script>
 
 <style scoped>
@@ -201,11 +198,6 @@ function getRandomColor() {
   justify-content: center;
   align-items: center;
   color: white;
-}
-
-.about-scatter-text {
-  color: white;
-  width: 40%;
 }
 
 .downImg {

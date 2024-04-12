@@ -15,11 +15,7 @@
       </video>
 
       <div class="overlay"></div>
-      <p class="about-scatter-text">
-        A scatter chart is like throwing a bunch of oranges onto a giant grid
-        and seeing where they splatter. Each orange becomes a dot, with its
-        position showing its size and juiciness.
-      </p>
+<AboutChart :AboutText="AboutText" />
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>
@@ -92,7 +88,7 @@ import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
 import { IOrange } from "../../interfaces/OrangeInterface";
 import { ref, computed, provide } from "vue";
 import MultiSelect from "primevue/multiselect";
-
+import AboutChart from "../AboutChart.vue";
 const videoElement = ref<HTMLVideoElement | null>(null);
 interface VarietyOption {
   name: string;
@@ -130,6 +126,8 @@ provide("filteredOrangeData", filteredOrangeData);
 function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
+const AboutText = ref<string>("        A scatter chart is like throwing a bunch of oranges onto a giant gridand seeing where they splatter. Each orange becomes a dot, with itsposition showing its size and juiciness.")
 </script>
 
 <style scoped>
@@ -189,10 +187,7 @@ function getRandomColor() {
   color: white;
 }
 
-.about-scatter-text {
-  color: white;
-  width: 40%;
-}
+
 
 .downImg {
   width: 35px;

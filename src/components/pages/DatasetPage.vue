@@ -15,12 +15,7 @@
       </video>
 
       <div class="overlay"></div>
-      <p class="about-dataset-text">
-        Uncover the juicy secrets of our dataset, where every orange is a
-        number-crunching delight! From size to sweetness, our stats go beyond
-        the peel. It’s data with a zesty twist, served fresh for your analytical
-        appetite!
-      </p>
+      <AboutChart :AboutText="AboutText" />
       <div class="downMessage">
         <p class="header-keepScrolling-message">
           <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
@@ -43,7 +38,7 @@ import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
 import { IOrange } from "../../interfaces/OrangeInterface";
 import { ref } from "vue";
-
+import AboutChart from "../AboutChart.vue";
 const videoElement = ref<HTMLVideoElement | null>(null);
 
 const rowData = ref(OrangeDatSet.value);
@@ -61,6 +56,9 @@ const colDefs = ref([
   { field: "Blemishes (Y/N)", headerName: "Blemishes (Y/N)" },
   { field: "Quality (1-5)", headerName: "Quality (1-5)" },
 ]);
+const AboutText = ref<string>(
+  "Uncover the juicy secrets of our dataset, where every orange is a number-crunching delight! From size to sweetness, our stats go beyond the peel. It’s data with a zesty twist, served fresh for your analytical appetite!"
+);
 </script>
 
 <style scoped>
