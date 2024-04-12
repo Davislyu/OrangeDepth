@@ -43,28 +43,27 @@ export default defineComponent({
     }
 
     const barData = computed(() => {
-      const labels = filteredOrangeData.value.map((group) => group.variety);
-      const data = filteredOrangeData.value.map((group) => {
-        const sum = group.data.reduce(
-          (acc, item) => acc + Number(item[Field.value]),
-          0
-        );
-        return sum / group.data.length;
-      });
-      const backgroundColors = filteredOrangeData.value.map(
-        () => `hsl(${Math.random() * 360}, 60%, 75%)`
-      );
+      const datasets = [
+        {
+          label: `Average ${Field.value}`,
+          data: filteredOrangeData.value.map(
+            (group) =>
+              group.data.reduce(
+                (acc, item) => acc + Number(item[Field.value]),
+                0
+              ) / group.data.length
+          ),
+          backgroundColor: filteredOrangeData.value.map(
+            () => `hsl(${Math.random() * 360}, 60%, 75%)`
+          ),
+          borderColor: "white",
+          borderWidth: 1,
+        },
+      ];
 
       return {
-        labels,
-        datasets: [
-          {
-            label: `Average ${Field.value}`,
-            data,
-            backgroundColor: backgroundColors,
-            borderWidth: 1,
-          },
-        ],
+        labels: filteredOrangeData.value.map((group) => group.variety),
+        datasets,
       };
     });
 
@@ -72,20 +71,27 @@ export default defineComponent({
       responsive: true,
       plugins: {
         legend: {
-          display: true,
+          display: false,
+          position: "top",
           labels: {
             color: "white",
+            font: {
+              size: 14,
+            },
           },
         },
         title: {
           display: true,
           text: `Average ${Field.value} by Variety`,
           color: "white",
+          font: {
+            size: 18,
+          },
         },
       },
       scales: {
         y: {
-          beginAtZero: true,
+          beginAtZero: false,
           title: {
             display: true,
             text: `Average ${Field.value}`,
@@ -115,7 +121,13 @@ export default defineComponent({
 
 <style scoped>
 .BarChart {
-  width: 100%;
-  max-width: 600px;
+  width: 40%;
+  max-width: 800px;
+}
+
+@media (max-width: 480px) {
+  .BarChart {
+    width: 100%;
+  }
 }
 </style>
