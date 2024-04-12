@@ -58,17 +58,24 @@
 </template>
 
 <script lang="ts" setup>
-import KeepScrollingComp from "../KeepScrollingComp.vue";
 import Button from "primevue/button";
 import orangeVideo from "../../assets/orangeVideo.mp4";
 import { Ifact } from "../../interfaces/FactInterface";
 import FactCard from "../../components/FactCard.vue";
-import { reactive, ref, computed, onMounted } from "vue";
 import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
 import * as clothingImages from "../../assets/clothing";
-import AboutChart from "../AboutChart.vue";
+
+import {
+  KeepScrollingComp,
+  ref,
+  computed,
+  AboutChart,
+  onMounted,
+  reactive,
+} from "../../index.ts";
 const videoElement = ref<HTMLVideoElement | null>(null);
+
 const currentPage = ref(0);
 const pageSize = 3;
 const aboutSiteText = ref(

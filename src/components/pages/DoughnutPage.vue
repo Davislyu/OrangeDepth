@@ -77,17 +77,21 @@
 </template>
 
 <script lang="ts" setup>
-import KeepScrollingComp from "../KeepScrollingComp.vue";
 import orangeVideo4 from "../../assets/orangeVideo4.mp4";
 import DoughnutChart from "../../components/charts/DoughnutChart.vue";
-import OrangeDataSetJson from "../../data/OrangeDataSet.json";
-import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";
-import { OrangeAttributesEnum } from "../../enums/orangeAttributeEnums.ts";
-import { IOrange } from "../../interfaces/OrangeInterface";
-import { ref, computed, provide } from "vue";
-import MultiSelect from "primevue/multiselect";
-import AboutChart from "../AboutChart.vue";
-const videoElement = ref<HTMLVideoElement | null>(null);
+import {
+  KeepScrollingComp,
+  OrangeDataSetJson,
+  OrangeVarietyEnum,
+  OrangeAttributesEnum,
+  IOrange,
+  ref,
+  computed,
+  provide,
+  MultiSelect,
+  AboutChart,
+} from "../../index.ts";
+
 interface VarietyOption {
   name: string;
 }

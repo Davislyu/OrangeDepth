@@ -25,14 +25,17 @@
 </template>
 
 <script lang="ts" setup>
-import KeepScrollingComp from "../KeepScrollingComp.vue";
 import orangeVideo from "../../assets/orangeVideo2.mp4";
 import OrangeGrid from "../OrangeGrid.vue";
-import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
-import { IOrange } from "../../interfaces/OrangeInterface";
-import { ref } from "vue";
-import AboutChart from "../AboutChart.vue";
+import {
+  KeepScrollingComp,
+  OrangeDataSetJson,
+  IOrange,
+  ref,
+  AboutChart,
+} from "../../index.ts";
+
 const videoElement = ref<HTMLVideoElement | null>(null);
 
 const rowData = ref(OrangeDatSet.value);
