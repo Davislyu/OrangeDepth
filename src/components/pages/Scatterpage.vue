@@ -7,8 +7,6 @@
     </HeaderComp>
     <div class="content">
       <VarietySelection v-model="selectedVarieties" :options="allVarieties" />
-
-
       <div class="scatterCharts-container">
         <ScatterChart
           :xField="OrangeAttributesEnum.ripness"
@@ -31,20 +29,7 @@
           :yField="OrangeAttributesEnum.ripness"
         />
       </div>
-      <div class="charts-explanation">
-  <p class="explanation-text">
-    Dive into the zesty world of our scatter charts, where every dot tells a tantalizing tale of citrus saga! 🍊 Let's embark on a flavor-filled journey:
-    <ul class="summary-list" >
-      <li><strong>Ripeness vs. Brix:</strong> Uncover the sweet secrets of citrus success. It's like matchmaking for your fruit bowl!</li>
-      <li><strong>Harvest Time vs. Ripeness:</strong> Witness the love story of time and tenderness, a chronicle of citrus serendipity.</li>
-      <li><strong>Size vs. Quality:</strong> Behold the grandeur of girth and greatness. Remember, in the orchard of opulence, every orange is outstanding!</li>
-      <li><strong>pH vs. Brix:</strong> Sip the science of sour and sweet, a tangy tango of taste that’s perfectly balanced.</li>
-      <li><strong>Softness vs. Ripeness:</strong> Feel the soft whispers of ripeness, where every squeeze tells a story.</li>
-    </ul>
-    Revel in the riot of colors and flavors as our charts peel away the mysteries of oranges, serving you the juiciest gossip from the grove!
-  </p>
-</div>
-
+      <ChartExplanationComp :ChartExplanationObj="chartExplanationObj" />
     </div>
   </div>
 </template>
@@ -52,9 +37,43 @@
 <script lang="ts" setup>
 import orangeVideo3 from "../../assets/orangeVideo3.mp4";
 import ScatterChart from "../../components/charts/ScatterChart.vue";
-import {
-    VarietySelection,
+const chartExplanationObj = reactive({
+  explanationText:
+    "Dive into the zesty world of our scatter charts, where every dot tells a tantalizing tale of citrus saga! 🍊 Let's embark on a flavor-filled journey:",
+  summaryList: [
+    {
+      key: "Ripeness vs. Brix:",
+      description:
+        "Uncover the sweet secrets of citrus success. It's like matchmaking for your fruit bowl!",
+    },
+    {
+      key: "Harvest Time vs. Ripeness:",
+      description:
+        "Witness the love story of time and tenderness, a chronicle of citrus serendipity.",
+    },
+    {
+      key: "Size vs. Quality:",
+      description:
+        "Behold the grandeur of girth and greatness. Remember, in the orchard of opulence, every orange is outstanding!",
+    },
+    {
+      key: "pH vs. Brix:",
+      description:
+        "Sip the science of sour and sweet, a tangy tango of taste that’s perfectly balanced.",
+    },
+    {
+      key: "Softness vs. Ripeness:",
+      description:
+        "Feel the soft whispers of ripeness, where every squeeze tells a story.",
+    },
+  ],
+  footerSentence:
+    "Revel in the riot of colors and flavors as our charts peel away the mysteries of oranges, serving you the juiciest gossip from the grove!",
+});
 
+import {
+  VarietySelection,
+  ChartExplanationComp,
   HeaderComp,
   OrangeDataSetJson,
   OrangeVarietyEnum,
@@ -63,8 +82,8 @@ import {
   ref,
   computed,
   provide,
-  MultiSelect,
   AboutChart,
+  reactive,
 } from "../../index.ts";
 interface VarietyOption {
   name: string;
@@ -76,10 +95,13 @@ interface VarietyOption {
 
 const OrangeDataSet = ref<IOrange[]>(OrangeDataSetJson);
 
-
-const defaultVarieties = [OrangeVarietyEnum.Jaffa, OrangeVarietyEnum.BloodOrange,OrangeVarietyEnum.Hamlin];
+const defaultVarieties = [
+  OrangeVarietyEnum.Jaffa,
+  OrangeVarietyEnum.BloodOrange,
+  OrangeVarietyEnum.Hamlin,
+];
 const selectedVarieties = ref<VarietyOption[]>(
-  defaultVarieties.map(variety => ({ name: variety }))
+  defaultVarieties.map((variety) => ({ name: variety }))
 );
 
 const allVarieties = ref(
@@ -103,61 +125,14 @@ function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const AboutText = ref<string>("        A scatter chart is like throwing a bunch of oranges onto a giant gridand seeing where they splatter. Each orange becomes a dot, with itsposition showing its size and juiciness.")
+const AboutText = ref<string>(
+  "        A scatter chart is like throwing a bunch of oranges onto a giant gridand seeing where they splatter. Each orange becomes a dot, with itsposition showing its size and juiciness."
+);
 </script>
 
 <style scoped>
 * {
   font-weight: 100;
-}
-
-.charts-explanation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: transparent;
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
-
-.explanation-text {
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-.explanation-text ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.explanation-text li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
-
-.explanation-text li::before {
-  content: '🍊';
-  padding-right: 10px;
-}
-
-.explanation-text strong {
-  color: #000d1a;
-  font-size: 1.3rem;
-}
-
-.header-keepScrolling-message {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  color: white;
 }
 
 .overlay {
@@ -192,29 +167,4 @@ const AboutText = ref<string>("        A scatter chart is like throwing a bunch 
   gap: 5rem;
   margin-top: 1rem;
 }
-
-
-
-
-.summary-list {
-  list-style: none;
-  padding: 0;
-}
-
-.summary-list li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
-
-.summary-list li::before {
-  content: "🍊";
-  padding-right: 10px;
-}
-
-.summary-list strong {
-  color: #dbaf11;
-  font-size: 1.3rem;
-}
-
 </style>

@@ -14,40 +14,7 @@
         <DoughnutChart :Field="OrangeAttributesEnum.ripness" />
         <DoughnutChart :Field="OrangeAttributesEnum.color" />
       </div>
-      <div class="charts-explanation">
-        <p class="explanation-text">
-          Explore the flavorful world of our Doughnut charts, where each slice
-          reveals the juicy secrets of oranges! 🍊 Delight in the vibrant
-          tapestry of citrus varieties and tastes.
-        </p>
-        <ul class="summary-list">
-          <li>
-            <strong>Quality Distribution:</strong> Explore the spectrum of
-            quality across our orange varieties, revealing the high standards
-            and meticulous care in every segment.
-          </li>
-          <li>
-            <strong>Color Diversity:</strong> Feast your eyes on the colorful
-            palette of nature as we dissect the hues, from the deep greens of
-            unripe fruit to the vibrant oranges of peak ripeness.
-          </li>
-          <li>
-            <strong>Ripeness Levels:</strong> Gauge the stages of maturity and
-            readiness for consumption, showing how each variety progresses from
-            tart to tantalizingly sweet.
-          </li>
-
-          <li>
-            <strong>Softness Spectrum:</strong> Feel the texture range with a
-            visual touch, illustrating the journey from firm to tender as each
-            orange reaches its peak softness.
-          </li>
-        </ul>
-        <p>
-          Revel in the riot of colors and flavors as our charts peel away the
-          mysteries of oranges, serving you the juiciest gossip from the grove!
-        </p>
-      </div>
+      <ChartExplanationComp :ChartExplanationObj="ChartExplanationObj" />
     </div>
   </div>
 </template>
@@ -57,7 +24,9 @@ import orangeVideo4 from "../../assets/orangeVideo4.mp4";
 import DoughnutChart from "../../components/charts/DoughnutChart.vue";
 import {
   VarietySelection,
+  ChartExplanationComp,
   HeaderComp,
+  reactive,
   OrangeDataSetJson,
   OrangeVarietyEnum,
   OrangeAttributesEnum,
@@ -65,7 +34,6 @@ import {
   ref,
   computed,
   provide,
-  MultiSelect,
   AboutChart,
 } from "../../index.ts";
 
@@ -101,67 +69,41 @@ function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 const AboutText = ref<string>(
-  "        A Doughnut chart is like slicing up an orange into different wedges,with each Doughnutce representing a distinct flavor found within the fruit. Each wedge of the Doughnut chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile."
+  "A Doughnut chart is like slicing up an orange into different wedges,with each Doughnutce representing a distinct flavor found within the fruit. Each wedge of the Doughnut chart is like a unique taste of the orange, showing how sweet, sour, or tangy each section is in comparison to the whole. The size of each slice reveals the proportion of that flavor, giving a visual taste test of the orange's diverse flavor profile."
 );
+const ChartExplanationObj = reactive({
+  explanationText:
+    "Explore the flavorful world of our Doughnut charts, where each slice reveals the juicy secrets of oranges! 🍊 Delight in the vibrant tapestry of citrus varieties and tastes.",
+  summaryList: [
+    {
+      key: "Quality Distribution:",
+      description:
+        "Explore the spectrum of quality across our orange varieties, revealing the high standards and meticulous care in every segment.",
+    },
+    {
+      key: "Color Diversity:",
+      description:
+        "Feast your eyes on the colorful palette of nature as we dissect the hues, from the deep greens of unripe fruit to the vibrant oranges of peak ripeness.",
+    },
+    {
+      key: "Ripeness Levels:",
+      description:
+        "Gauge the stages of maturity and readiness for consumption, showing how each variety progresses from tart to tantalizingly sweet.",
+    },
+    {
+      key: "Softness Spectrum:",
+      description:
+        "Feel the texture range with a visual touch, illustrating the journey from firm to tender as each orange reaches its peak softness.",
+    },
+  ],
+  footerSentence:
+    "Revel in the riot of colors and flavors as our charts peel away the mysteries of oranges, serving you the juiciest gossip from the grove!",
+});
 </script>
 
 <style scoped>
 * {
   font-weight: 100;
-}
-
-.charts-explanation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: transparent;
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
-
-.explanation-text {
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-.explanation-text ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.explanation-text li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
-
-.explanation-text li::before {
-  content: "🍊";
-  padding-right: 10px;
-}
-
-.explanation-text strong {
-  color: #000d1a;
-  font-size: 1.3rem;
-}
-
-.header-keepScrolling-message {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.about-scatter-text {
-  color: white;
-  width: 40%;
 }
 
 .overlay {
@@ -195,26 +137,5 @@ const AboutText = ref<string>(
   justify-content: center;
   gap: 5rem;
   margin-top: 1rem;
-}
-
-.summary-list {
-  list-style: none;
-  padding: 0;
-}
-
-.summary-list li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
-
-.summary-list li::before {
-  content: "🍊";
-  padding-right: 10px;
-}
-
-.summary-list strong {
-  color: #dbaf11;
-  font-size: 1.3rem;
 }
 </style>
