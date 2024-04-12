@@ -15,13 +15,7 @@
       </video>
       <div class="overlay"></div>
       <AboutChart :AboutText="AboutText" />
-      <div class="downMessage">
-        <p class="header-keepScrolling-message">
-          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
-          every drop by scrolling Down!
-          <span><img class="downImg" :src="arrowDown" alt="#" /> </span>
-        </p>
-      </div>
+      <KeepScrollingComp />
     </header>
     <div class="content">
       <About_siteComp :about_text="aboutSiteText" />
@@ -64,6 +58,7 @@
 </template>
 
 <script lang="ts" setup>
+import KeepScrollingComp from "../KeepScrollingComp.vue";
 import Button from "primevue/button";
 import orangeVideo from "../../assets/orangeVideo.mp4";
 import { Ifact } from "../../interfaces/FactInterface";
@@ -71,7 +66,6 @@ import FactCard from "../../components/FactCard.vue";
 import { reactive, ref, computed, onMounted } from "vue";
 import CaruselleComp from "../CaruselleComp.vue";
 import About_siteComp from "../About_siteComp.vue";
-import arrowDown from "../../assets/arrowDown.png";
 import * as clothingImages from "../../assets/clothing";
 import AboutChart from "../AboutChart.vue";
 const videoElement = ref<HTMLVideoElement | null>(null);

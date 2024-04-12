@@ -16,13 +16,7 @@
 
       <div class="overlay"></div>
       <AboutChart :AboutText="AboutText" />
-      <div class="downMessage">
-        <p class="header-keepScrolling-message">
-          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>
-          Squeeze every drop by scrolling Down!
-          <span><img class="downImg" :src="arrowDown" alt="#" /> </span>
-        </p>
-      </div>
+      <KeepScrollingComp />
     </header>
     <div class="content">
       <div class="varietySelection">
@@ -89,8 +83,8 @@
 </template>
 
 <script lang="ts" setup>
+import KeepScrollingComp from "../KeepScrollingComp.vue";
 import orangeVideo5 from "../../assets/orangeVideo5.mp4";
-import arrowDown from "../../assets/arrowDown.png";
 import BarChart from "../../components/charts/BarChart.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 import { OrangeVarietyEnum } from "../../enums/orangeVarietyEnums";

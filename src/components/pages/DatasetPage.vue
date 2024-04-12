@@ -16,13 +16,7 @@
 
       <div class="overlay"></div>
       <AboutChart :AboutText="AboutText" />
-      <div class="downMessage">
-        <p class="header-keepScrolling-message">
-          <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
-          every drop by scrolling Down!
-          <span><img class="downImg" :src="arrowDown" alt="#" /> </span>
-        </p>
-      </div>
+      <KeepScrollingComp />
     </header>
     <div class="content">
       <OrangeGrid :colDefs="colDefs" :rowData="rowData" />
@@ -31,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
+import KeepScrollingComp from "../KeepScrollingComp.vue";
 import orangeVideo from "../../assets/orangeVideo2.mp4";
-import arrowDown from "../../assets/arrowDown.png";
 import OrangeGrid from "../OrangeGrid.vue";
 import OrangeDataSetJson from "../../data/OrangeDataSet.json";
 const OrangeDatSet = ref<IOrange[]>(OrangeDataSetJson);
