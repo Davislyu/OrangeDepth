@@ -82,4 +82,52 @@ const videoElement = ref<HTMLVideoElement | null>(null);
   );
   z-index: 1;
 }
+.header-title {
+  text-align: center;
+  margin-top: 20%;
+  padding: 2px;
+  position: relative;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 100;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+}
+.header-title:after,
+.header-title:before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 0px solid #fff;
+  transition: all 1s;
+}
+
+.header-title:after {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid orange;
+  border-left: 2px solid orange;
+}
+
+.header-title:before {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid orange;
+  border-right: 2px solid orange;
+}
+
+.header-title:hover {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.header-title:hover:before,
+.header-title:hover:after {
+  width: 100%;
+  height: 100%;
+}
 </style>

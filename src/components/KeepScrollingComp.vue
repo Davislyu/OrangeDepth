@@ -25,6 +25,7 @@ import arrowDown from "../assets/arrowDown.png";
   justify-content: center;
   align-items: center;
   color: white;
+  text-align: center;
 }
 .downImg {
   width: 35px;

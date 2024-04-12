@@ -134,139 +134,6 @@ const AboutText = ref<string>(
 * {
   font-weight: 100;
 }
-.varietySelection-message {
-  color: gray;
-}
-.charts-explanation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: transparent;
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
-
-.explanation-text {
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-.explanation-text ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.explanation-text li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
-
-.explanation-text li::before {
-  content: "🍊";
-  padding-right: 10px;
-}
-
-.explanation-text strong {
-  color: #000d1a;
-  font-size: 1.3rem;
-}
-
-.header-keepScrolling-message {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.downImg {
-  width: 35px;
-  height: 35px;
-}
-
-.downMessage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.video-background {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -10000000;
-}
-
-.header-container {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-title {
-  text-align: center;
-  margin-top: 20%;
-  padding: 2px;
-  position: relative;
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 100;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  transition: all 1s;
-}
-.header-title:after,
-.header-title:before {
-  content: " ";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  border: 0px solid #fff;
-  transition: all 1s;
-}
-
-.header-title:after {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid orange;
-  border-left: 2px solid orange;
-}
-
-.header-title:before {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid orange;
-  border-right: 2px solid orange;
-}
-
-.header-title:hover {
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-
-.header-title:hover:before,
-.header-title:hover:after {
-  width: 100%;
-  height: 100%;
-}
 
 .overlay {
   position: absolute;
@@ -282,6 +149,7 @@ const AboutText = ref<string>(
   );
   z-index: 1;
 }
+
 .content {
   width: 100%;
   padding: 1rem;
@@ -293,6 +161,17 @@ const AboutText = ref<string>(
   );
   backdrop-filter: blur(90px);
 }
+
+.varietySelection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.varietySelection-message {
+  color: gray;
+}
+
 .scatterCharts-container {
   display: flex;
   flex-wrap: wrap;
@@ -300,19 +179,45 @@ const AboutText = ref<string>(
   gap: 5rem;
   margin-top: 1rem;
 }
-.varietyCheckBoxes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-  background: red;
-}
-.varietySelection {
+
+.charts-explanation {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.explanation-text {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.4rem;
+  text-indent: -0.7rem;
+}
+
+.summary-list li::before {
+  content: "🍊";
+  padding-right: 10px;
+}
+
+.summary-list strong {
+  color: #dbaf11;
+  font-size: 1.3rem;
 }
 
 .p-multiselect {
@@ -325,12 +230,7 @@ const AboutText = ref<string>(
   background-color: transparent;
 }
 
-.p-multiselect:not(p.diabled).p-focus {
+.p-multiselect:not(p.disabled).p-focus {
   box-shadow: none;
-}
-.summary-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
 }
 </style>
