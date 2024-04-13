@@ -37,6 +37,15 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **Chart.js**: Renders responsive and customizable charts.
 - **PrimeVue**: Delivers a rich set of UI components.
 
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
+
 ## 🏃🏼 How to Run
 
 To launch OrangeDepth° locally, follow these steps:
