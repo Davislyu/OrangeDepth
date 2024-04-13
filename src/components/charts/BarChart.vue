@@ -1,18 +1,18 @@
 <template>
   <div class="BarChart">
-    <Bar :data="barData" :options="barOptions" v-motion-pop-visible
-    />
+    <Bar :data="barData" :options="barOptions" v-motion-pop-visible />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, toRefs } from "vue";
+import { computed, defineComponent, inject, toRefs, Ref } from "vue";
 import { Bar } from "vue-chartjs";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  ChartOptions,
   Title,
   Tooltip,
   Legend,
@@ -33,11 +33,15 @@ export default defineComponent({
     Bar,
   },
   props: {
-    Field: String,
+    Field: {
+      type: String,
+      required: true,
+      default: 'defaultField' // Make sure to pass a default or always provide this prop
+    },
   },
   setup(props) {
-    const { Field } = toRefs(props);
-    const filteredOrangeData = inject("filteredOrangeData");
+    const { Field } = toRefs(props) as { Field: Ref<string> };
+    const filteredOrangeData = inject<any>("filteredOrangeData");
 
     if (!filteredOrangeData) {
       throw new Error("filteredOrangeData is not provided");
@@ -47,23 +51,17 @@ export default defineComponent({
       const datasets = [
         {
           label: `Average ${Field.value}`,
-          data: filteredOrangeData.value.map(
-            (group) =>
-              group.data.reduce(
-                (acc, item) => acc + Number(item[Field.value]),
-                0
-              ) / group.data.length
+          data: filteredOrangeData.value.map((group: any) =>
+            group.data.reduce((acc: number, item: any) => acc + Number(item[Field.value || 'defaultField']), 0) / group.data.length
           ),
-          backgroundColor: filteredOrangeData.value.map(
-            () => `hsl(${Math.random() * 360}, 60%, 75%)`
-          ),
+          backgroundColor: filteredOrangeData.value.map(() => `hsl(${Math.random() * 360}, 60%, 75%)`),
           borderColor: "white",
           borderWidth: 1,
         },
       ];
 
       return {
-        labels: filteredOrangeData.value.map((group) => group.variety),
+        labels: filteredOrangeData.value.map((group: any) => group.variety),
         datasets,
       };
     });
@@ -113,12 +111,13 @@ export default defineComponent({
           },
         },
       },
-    }));
+    }) as ChartOptions<"bar">);
 
     return { barData, barOptions };
   },
 });
 </script>
+
 
 <style lang="scss" scoped>
 @import "../../styles/_chartMixins.scss";
