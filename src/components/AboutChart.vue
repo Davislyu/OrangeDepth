@@ -15,6 +15,12 @@ const props = defineProps({
 <style scoped>
 .about-chart-text {
   color: white;
-  width: 40%;
+  width: 90%; 
+
+
+  @media (min-width: 768px) { 
+    width: 40%;
+  }
 }
 </style>
+
