@@ -119,15 +119,9 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../styles/_chartMixins.scss";
 .BarChart {
-  width: 40%;
-  max-width: 800px;
-}
-
-@media (max-width: 480px) {
-  .BarChart {
-    width: 100%;
-  }
+  @include barChartStyling;  
 }
 </style>

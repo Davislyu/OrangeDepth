@@ -11,7 +11,7 @@ import { IFactCardProps } from "../interfaces/FactCardPropsInterface.ts";
 const props = defineProps<IFactCardProps>();
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .fact-item {
   max-width: 300px;
   height: 200px;
@@ -26,11 +26,13 @@ const props = defineProps<IFactCardProps>();
   overflow: hidden;
   color: white;
   backdrop-filter: blur(70px);
-}
-
-.fact-icon {
+  
+  .fact-icon {
   font-size: 2rem;
   color: #ff9800;
   margin-bottom: 0.5rem;
 }
+}
+
+
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="varietySelection">
     <h2 class="varietySelection-message">
-      Don't be a sour lemon, pick your orange varieties!
+      Don't be a sour <span>lemon</span>, pick your orange varieties!
     </h2>
     <MultiSelect
       :model-value="modelValue"
@@ -34,28 +34,35 @@ const onUpdate = (newValue: VarietyOption[]) => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .varietySelection {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.varietySelection-message {
+  
+  .varietySelection-message {
   color: gray;
   font-weight: 100;
 }
+.varietySelection-message span{
+  color: rgba(255, 255, 0, 0.675);
+}
+}
+
+
 .p-multiselect {
   background-color: transparent;
   border: 1px solid transparent;
   max-width: 100%;
-}
-
-.p-multiselect:hover {
+  
+  .p-multiselect:hover {
   background-color: transparent;
 }
 
 .p-multiselect:not(p.disabled).p-focus {
   box-shadow: none;
 }
+}
+
+
 </style>

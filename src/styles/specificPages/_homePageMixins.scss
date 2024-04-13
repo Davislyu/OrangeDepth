@@ -1,0 +1,35 @@
+@mixin homePageStyling{
+    * {
+        font-weight: 100;
+      }
+      
+      .content {
+        text-align: center;
+      }
+      
+      .facts-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .fact-icon {
+        font-size: 2rem;
+        display: inline-block;
+      }
+      
+      .merch-container {
+        color: whitesmoke;
+        backdrop-filter: blur(20px);
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+      .merch-text {
+        margin-left: 10%;
+        margin-right: 10%;
+        line-height: 3rem;
+        padding: 2rem;
+      }
+}

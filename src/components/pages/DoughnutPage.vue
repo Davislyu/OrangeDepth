@@ -8,7 +8,7 @@
     <div class="content">
       <VarietySelection v-model="selectedVarieties" :options="allVarieties" />
 
-      <div class="scatterCharts-container">
+      <div class="charts-container">
         <DoughnutChart :Field="OrangeAttributesEnum.quality" />
         <DoughnutChart :Field="OrangeAttributesEnum.softness" />
         <DoughnutChart :Field="OrangeAttributesEnum.ripness" />
@@ -102,41 +102,8 @@ const ChartExplanationObj = reactive<IChartExplanationObj>({
 });
 </script>
 
-<style scoped>
-* {
-  font-weight: 100;
-}
+<style lang="scss" scoped>
+@import "../../styles/_chartPageMixins.scss";
+@include chartPageStyling;
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  z-index: 1;
-}
-.content {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  backdrop-filter: blur(90px);
-}
-.scatterCharts-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5rem;
-  margin-top: 1rem;
-}
 </style>

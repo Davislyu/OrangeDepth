@@ -53,7 +53,7 @@ function isCurrentIndex(index) {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .v-move,
 .v-enter-active,
 .v-leave-active {
@@ -71,27 +71,33 @@ function isCurrentIndex(index) {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.carousel-container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-}
 
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+  .carousel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
 
-.arrows {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-.arrows i {
-  cursor: pointer;
+    .carousel-slider {
+      .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+
+  .arrows {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    i {
+      cursor: pointer;
+      font-size: 2rem;
+    }
+  }
 }
 </style>
+

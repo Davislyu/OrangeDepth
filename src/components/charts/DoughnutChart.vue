@@ -1,5 +1,5 @@
 <template>
-  <div class="Doughnut">
+  <div class="DoughnutChart">
     <Doughnut :data="DoughnutData" :options="DoughnutOptions" />
   </div>
 </template>
@@ -94,8 +94,9 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.Doughnut {
-  width: 350px;
+<style lang="scss" scoped>
+@import "../../styles/_chartMixins.scss";
+.DoughnutChart {
+  @include doughnutChartStyling; 
 }
 </style>

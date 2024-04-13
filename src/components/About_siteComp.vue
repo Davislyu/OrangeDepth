@@ -23,31 +23,41 @@ const props = defineProps({
 });
 </script>
 
-<style scoped>
-@media screen and (max-width: 1500px) {
-  .about-container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.about-header {
-  margin-top: 2%;
-  font-weight: 150;
-}
+<style lang="scss" scoped>
 .about-container {
   color: whitesmoke;
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  .logo {
+    width: 70%;
+
+  }
+
+  .about_siteContent {
+    .about-header {
+      margin-top: 2%;
+      font-weight: 150;
+    }
+
+    .about-text {
+      margin-left: 10%;
+      margin-right: 10%;
+      line-height: 1.7rem;
+    }
+  }
 }
-.about-text {
-  margin-left: 10%;
-  margin-right: 10%;
-  line-height: 1.7rem;
-}
-.logo {
-  width: 70%;
+
+@media screen and (max-width: 1500px) {
+  .about-container {
+    flex-direction: column;
+    .logo {
+      width: 60%;
+  
+    }
+    
+  }
 }
 </style>

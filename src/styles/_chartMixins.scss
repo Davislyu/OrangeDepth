@@ -1,0 +1,20 @@
+
+@mixin barChartStyling {
+  width: 40%;
+  max-width: 800px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+@mixin scatterChartStyling {
+  width: 650px;
+}
+
+@mixin doughnutChartStyling {
+  width: 350px;
+}
+
+@mixin ChartPagesStyling{
+  
+}

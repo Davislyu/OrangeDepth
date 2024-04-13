@@ -23,12 +23,7 @@ const props = defineProps({
 });
 </script>
 
-<style scoped>
-.key-term {
-  color: #dbaf11;
-  font-size: 1.4rem;
-}
-
+<style lang="scss" scoped>
 .charts-explanation {
   display: flex;
   flex-direction: column;
@@ -40,29 +35,42 @@ const props = defineProps({
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   color: #fff;
-}
 
-.explanation-text {
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-  text-decoration: underline;
-}
+  .explanation-text {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-decoration: underline;
 
-.summary-list {
-  list-style: none;
-  padding: 0;
-}
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both;
+    }
+  }
 
-.summary-list li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.4rem;
-  text-indent: -0.7rem;
-}
+  .summary-list {
+    list-style: none;
+    padding: 0;
 
-.summary-list li::before {
-  content: "🍊";
-  padding-right: 10px;
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.4rem;
+      text-indent: -0.7rem;
+
+      &::before {
+        content: "🍊";
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .key-term {
+    color: #dbaf11;
+    font-size: 1.4rem;
+  }
 }
 </style>
+

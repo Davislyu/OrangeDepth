@@ -12,23 +12,27 @@
 import arrowDown from "../assets/arrowDown.png";
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .downMessage {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-.header-keepScrolling-message {
+  align-items: center; 
+  
+  .header-keepScrolling-message {
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-}
-.downImg {
+  
+  .downImg {
   width: 35px;
   height: 35px;
 }
+}
+}
+
+
 </style>

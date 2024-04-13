@@ -1,5 +1,5 @@
 <template>
-  <div class="scatter">
+  <div class="ScatterChart">
     <Scatter :data="ScatterData" :options="ScatterOptions" />
   </div>
 </template>
@@ -79,8 +79,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.scatter {
-  width: 650px;
+<style lang="scss" scoped>
+@import "../../styles/_chartMixins.scss";
+.ScatterChart {
+  @include scatterChartStyling; 
 }
 </style>
+
