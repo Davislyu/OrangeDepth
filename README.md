@@ -4,7 +4,8 @@
   <h1>OrangeDepth°</h1>
 </div>
 
-Check out [[OrangeDepth ](https://github.com)](https://orange-depth.vercel.app/)
+Visit [OrangeDepth](https://orange-depth.vercel.app/) to explore the website
+
 
 ## Hello there! 👋
 
