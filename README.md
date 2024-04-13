@@ -1,7 +1,9 @@
+![image](https://github.com/davislyu/OrangeDepth/assets/27707434/46daccdd-348d-4f1b-9568-ad1800085fe9)
+
 <div align="center" color="orange">
   <h1>OrangeDepth°</h1>
-![Vue Spreadsheet Application](https://github.com/davislyu/FrontendSpreadSheetsProj/assets/27707434/d1c4f553-bc29-495f-a1ea-b7c423e3e3e2)
 </div>
+
 
 
 
