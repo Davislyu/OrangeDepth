@@ -1,16 +1,11 @@
 <div align="center" color="orange">
   <h1>OrangeDepth°</h1>
- 
- 
-
-
+   ![Vue Spreadsheet Application](https://github.com/davislyu/FrontendSpreadSheetsProj/assets/27707434/d1c4f553-bc29-495f-a1ea-b7c423e3e3e2)
 </div>
 
 
-<div align="center">
-  <img src="https://github.com/davislyu/OrangeDepth/assets/27707434/9d335486-9523-4676-bd1b-3a0a073aa33c" alt="website_logo">
-  ![Vue Spreadsheet Application](https://github.com/davislyu/FrontendSpreadSheetsProj/assets/27707434/d1c4f553-bc29-495f-a1ea-b7c423e3e3e2)
-</div>
+
+
 
 
 
@@ -65,5 +60,13 @@ npm install
 npm run dev
 ```
 
+## Screenshots/videos
+
+https://github.com/davislyu/OrangeDepth/assets/27707434/fafb68cc-a9f9-4b1f-8f42-dcbc7a8dd4b8
+
+https://github.com/davislyu/OrangeDepth/assets/27707434/32cb45bf-ddf5-4256-8b82-259bfe25595b
+
+<img width="1711" alt="image" src="https://github.com/davislyu/OrangeDepth/assets/27707434/1efc2e86-55be-48bf-be41-e04c8a3d9b27">
+<img width="1704" alt="image" src="https://github.com/davislyu/OrangeDepth/assets/27707434/a15c7410-65f6-4d29-875e-6553713e3323">
 
 
