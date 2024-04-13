@@ -65,7 +65,10 @@ npm run dev
 
 ## Screenshots/videos
 
-https://github.com/davislyu/OrangeDepth/assets/27707434/fafb68cc-a9f9-4b1f-8f42-dcbc7a8dd4b8
+
+
+https://github.com/davislyu/OrangeDepth/assets/27707434/08b4b730-62a7-4994-a094-3ddd21ab4d44
+
 
 https://github.com/davislyu/OrangeDepth/assets/27707434/32cb45bf-ddf5-4256-8b82-259bfe25595b
 
