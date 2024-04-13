@@ -38,7 +38,8 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **PrimeVue**: Delivers a rich set of UI components.
 
 
-[[Vue.js]]
+* [![Vue][Vue.js]][Vue-url]
+
 
 
 ## 🏃🏼 How to Run
@@ -52,4 +53,6 @@ npm run dev
 ```
 
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+
 
