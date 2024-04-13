@@ -30,7 +30,7 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 
 ## 🛠 Built With
 
-- [![Vue][Vue.js]][Vue-url]: Powers the reactive and interactive user interfaces.
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) : Powers the reactive and interactive user interfaces.
 - **Vite**: Provides a fast development environment and optimized build tooling.
 - **SCSS**: Enhances CSS with more powerful styling capabilities.
 - **TypeScript**: Offers type safety for reliable code.
@@ -52,7 +52,5 @@ npm install
 npm run dev
 ```
 
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
 
 
