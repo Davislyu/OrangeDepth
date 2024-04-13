@@ -38,7 +38,7 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **PrimeVue**: Delivers a rich set of UI components.
 
 
-* [![Vue][Vue.js]][Vue-url]
+[[Vue.js]]
 
 
 ## 🏃🏼 How to Run
