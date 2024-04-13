@@ -1,45 +1,110 @@
 ![Vue Spreadsheet Application](https://github.com/davislyu/FrontendSpreadSheetsProj/assets/27707434/d1c4f553-bc29-495f-a1ea-b7c423e3e3e2)
 
-# OrangeDepth°
+<a name="readme-top"></a>
+<!--
+*** Thanks for checking out the OrangeDepth° project on GitHub. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-Welcome to **OrangeDepth°**, where citrus meets data mastery! Dive into juicy datasets and charts with us. Whether you're a data ninja or just love vitamin C, grab a glass of orange juice and let's squeeze some insights together! 🍊💻 #DataCitrusMastery.
 
-Embark on a flavorful journey of discovery, where every chart is a slice of citrus sunshine and every dataset is a refreshing splash of insight. Let's zest up your data skills and embark on an orange-infused adventure together! 🚀🍊
 
-## Live Demo
-Check out the live demo here: [OrangeDepth° Live](https://github.com/davislyu/OrangeDepth) - Dive into the interactive experience!
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-## Features
 
-- **About This Website**: Learn more about OrangeDepth° and its mission to blend citrus with data.
-- **Fact Cards**: Discover fun and interesting facts about oranges and data science—refresh for new insights!
-- **AI-Generated Merch**: Explore our exclusive merchandise, designed by AI with a zest of orange.
-- **Data Tables**: View and interact with our comprehensive datasets displayed beautifully using AG-Grid.
-- **Scatter Charts**: Analyze patterns with dynamic scatter charts built with Chart.js.
-- **Doughnut Charts**: Visualize data deliciously with engaging doughnut charts.
-- **Bar Charts**: Compare data effectively with our intuitive bar charts.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/davislyu/OrangeDepth">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Technologies Used
-- **Vue 3**: Progressive JavaScript framework for building user interfaces.
-- **Vite**: Next generation frontend tooling.
-- **TypeScript**: Strongly typed programming language that builds on JavaScript.
-- **SCSS**: Powerful CSS extension language.
-- **Chart.js**: Simple yet flexible JavaScript charting for designers & developers.
-- **AG-Grid**: High-performance grid system for web applications.
+  <h3 align="center">OrangeDepth°</h3>
 
-## Installation
+  <p align="center">
+    Dive into juicy datasets and charts with us at OrangeDepth°, where citrus meets data mastery!
+    <br />
+    <a href="https://github.com/davislyu/OrangeDepth"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/davislyu/OrangeDepth">View Demo</a>
+    ·
+    <a href="https://github.com/davislyu/OrangeDepth/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/davislyu/OrangeDepth/issues">Request Feature</a>
+  </p>
+</div>
 
-To get started with OrangeDepth°, follow these steps:
 
-```bash
-# Clone the repository
-git clone https://github.com/davislyu/OrangeDepth.git
 
-# Navigate into the project directory
-cd OrangeDepth
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-# Install dependencies
-npm install
 
-# Serve with hot reload at localhost
-npm run dev
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![OrangeDepth° Screen Shot][product-screenshot]
+
+Welcome to **OrangeDepth°**, the place where data analytics meets the vibrant zest of oranges. Whether you're a data ninja or just love vitamin C, OrangeDepth° offers a unique blend of data-driven insights with a splash of citrus flair.
+
+### Why OrangeDepth°?
+- **Engaging Data Visualization**: Every chart is a slice of citrus sunshine, offering both beauty and insight.
+- **Interactive Data Experience**: From dynamic fact cards to comprehensive data grids.
+- **AI-Generated Merchandise**: Exclusive merchandise collection designed by AI, combining the zest of oranges with the precision of data charts.
+
+### Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Here are a few examples.
+
+* ![Vue][Vue.js]
+* ![Vite][Vite-url]
+* ![SCSS][SCSS-url]
+* ![TypeScript][TypeScript-url]
+* ![Chart.js][Chartjs-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
