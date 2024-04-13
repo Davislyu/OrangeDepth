@@ -4,13 +4,7 @@
   <h1>OrangeDepth°</h1>
 </div>
 
-
-
-
-
-
-
-
+Check out [[OrangeDepth ](https://github.com)](https://orange-depth.vercel.app/)
 
 ## Hello there! 👋
 
@@ -52,6 +46,12 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **VueUse Motion**: Offers a robust solution for managing animations and transitions within Vue.
 - **Vue Router**: Manages navigation within the application.
 
+## 🌐 Media and Attribution
+
+- Background videos are sourced from Pexels.
+- All images, icons, and logos were generated using OpenAI's DALL-E 3.
+
+- 
 ## 🏃🏼 How to Run
 
 To launch OrangeDepth° locally, follow these steps:
