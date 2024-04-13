@@ -4,9 +4,9 @@
       Don't be a sour <span>lemon</span>, pick your orange varieties!
     </h2>
     <MultiSelect
-      :model-value="modelValue"
+      :model-value="props.modelValue"
       @update:model-value="onUpdate"
-      :options="options"
+      :options="props.options"
       option-label="name"
       placeholder="Select varieties"
       display="chip"
@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { MultiSelect } from "../index.ts";
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits,PropType } from "vue";
 
 interface VarietyOption {
   name: string;
