@@ -44,9 +44,7 @@ const AboutText = ref<string>(
 </script>
 
 <style scoped>
-* {
-  font-weight: 100;
-}
+
 
 .content {
   text-align: center;

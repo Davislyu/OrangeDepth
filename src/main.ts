@@ -12,6 +12,7 @@ import { AgGridVue } from "ag-grid-vue3";
 import Scatterpage from "./components/pages/Scatterpage.vue";
 import DoughnutPage from "./components/pages/DoughnutPage.vue";
 import BarChart from "./components/pages/BarPage.vue";
+import "./styles/global.css"
 const router = createRouter({
   history: createWebHistory(),
   routes: [
