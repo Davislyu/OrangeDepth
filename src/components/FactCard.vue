@@ -12,6 +12,9 @@ const props = defineProps<IFactCardProps>();
 </script>
 
 <style lang="scss" scoped>
+* {
+  box-sizing:content-box;
+}
 .fact-item {
   max-width: 300px;
   height: 200px;
