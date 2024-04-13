@@ -1,7 +1,8 @@
 ![Vue Spreadsheet Application](https://github.com/davislyu/FrontendSpreadSheetsProj/assets/27707434/d1c4f553-bc29-495f-a1ea-b7c423e3e3e2)
 # OrangeDepth°
 
-![OrangeDepth°](https://github.com/davislyu/OrangeDepth/assets/orange-depth-banner.png)
+![website_logo](https://github.com/davislyu/OrangeDepth/assets/27707434/22f985ea-776a-41b5-93a5-4b0418d17413)
+
 
 ## Hello there! 👋
 
@@ -30,17 +31,18 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 
 ## 🛠 Built With
 
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) : Powers the reactive and interactive user interfaces.
-- **Vite**: Provides a fast development environment and optimized build tooling.
-- **SCSS**: Enhances CSS with more powerful styling capabilities.
-- **TypeScript**: Offers type safety for reliable code.
-- **Chart.js**: Renders responsive and customizable charts.
-- **PrimeVue**: Delivers a rich set of UI components.
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) : Powers the reactive and interactive user interfaces.
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) :  Provides a fast development environment and optimized build tooling.
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) :  Enhances CSS with more powerful styling capabilities.
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) : Offers type safety for reliable code.
 
+## 🦴 Additional Tools/Libraries
 
-* [![Vue][Vue.js]][Vue-url]
-
-
+- **AG-Grid**: Provides a high-performance grid system that is both customizable and extensible.
+- **Chart.js**: Enables the creation of dynamic and animated charts with ease.
+- **PrimeVue**: Supplies a rich set of UI components tailored for Vue applications.
+- **VueUse Motion**: Offers a robust solution for managing animations and transitions within Vue.
+- **Vue Router**: Manages navigation within the application.
 
 ## 🏃🏼 How to Run
 
