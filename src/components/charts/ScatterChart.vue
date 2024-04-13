@@ -1,6 +1,6 @@
 <template>
   <div class="ScatterChart">
-    <Scatter :data="ScatterData" :options="ScatterOptions" />
+    <Scatter :data="ScatterData" :options="ScatterOptions" v-motion-pop-visible />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <p class="about-chart-text">
+  <p class="about-chart-text"  >
     {{ props.AboutText }}
   </p>
 </template>

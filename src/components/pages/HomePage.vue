@@ -1,12 +1,12 @@
 <template>
   <div class="homepage-container">
-    <HeaderComp title="OrangeDepth°" :videoSource="orangeVideo">
+    <HeaderComp title="OrangeDepth°" :videoSource="orangeVideo"  >
       <template v-slot:extra-content>
-        <AboutChart :AboutText="AboutText" />
+        <AboutChart :AboutText="AboutText"  />
       </template>
     </HeaderComp>
     <div class="content">
-      <About_siteComp :about_text="aboutSiteText" />
+      <About_siteComp :about_text="aboutSiteText"  />
       <div class="facts-container">
         <FactCard
           v-for="fact in paginatedFacts"

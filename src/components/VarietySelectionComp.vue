@@ -46,8 +46,16 @@ const onUpdate = (newValue: VarietyOption[]) => {
 }
 .varietySelection-message span{
   color: rgba(255, 255, 0, 0.675);
+  
+
+
+  &:hover{
+    cursor:url("../assets/lemon.png"),auto;
+  }
 }
 }
+
+
 
 
 .p-multiselect {

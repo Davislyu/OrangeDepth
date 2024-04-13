@@ -1,6 +1,6 @@
 <template>
   <header class="header-container">
-    <h1 class="header-title">{{ props.title }}</h1>
+    <h1 class="header-title" v-motion-fade  >{{ props.title }}</h1>
     <video
       :src="props.videoSource"
       autoplay
@@ -52,8 +52,6 @@ const videoElement = ref<HTMLVideoElement | null>(null);
     z-index: 2;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    transition: all 1s;
-
     &:after,
     &:before {
       content: " ";

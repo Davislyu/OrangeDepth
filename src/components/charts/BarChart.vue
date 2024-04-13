@@ -1,6 +1,7 @@
 <template>
   <div class="BarChart">
-    <Bar :data="barData" :options="barOptions" />
+    <Bar :data="barData" :options="barOptions" v-motion-pop-visible
+    />
   </div>
 </template>
 

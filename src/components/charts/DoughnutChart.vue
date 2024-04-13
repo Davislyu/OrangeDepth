@@ -1,6 +1,6 @@
 <template>
   <div class="DoughnutChart">
-    <Doughnut :data="DoughnutData" :options="DoughnutOptions" />
+    <Doughnut :data="DoughnutData" :options="DoughnutOptions" v-motion-pop-visible />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="downMessage">
+  <div class="downMessage" v-motion-slide-visible-once-right>
     <p class="header-keepScrolling-message">
       <span> <img class="downImg" :src="arrowDown" alt="#" /> </span>Squeeze
       every drop by scrolling Down!
@@ -26,6 +26,7 @@ import arrowDown from "../assets/arrowDown.png";
   align-items: center;
   color: white;
   text-align: center;
+  font-weight: 300;
   
   .downImg {
   width: 35px;

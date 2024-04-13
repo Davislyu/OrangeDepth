@@ -1,5 +1,5 @@
 <template>
-  <section class="about-container">
+  <section class="about-container" >
     <div class="logo">
       <img class="logo" :src="LogoImage2" alt="logoImage" />
     </div>
@@ -12,7 +12,6 @@
 <script setup>
 import Panel from "primevue/panel";
 
-import LogoImage from "../assets/orangeLogo.png";
 import LogoImage2 from "../assets/website_logo.png";
 
 const props = defineProps({
