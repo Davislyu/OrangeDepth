@@ -12,6 +12,7 @@
         flex-wrap: wrap;
         gap: 1rem;
         padding: 1rem;
+        font-size: 20px;
       }
       
       .fact-icon {
@@ -33,6 +34,9 @@
         font-weight: 200;
         h1{
           font-weight: 200;
+        }
+        p{
+          font-size: 20px;
         }
       }
 }

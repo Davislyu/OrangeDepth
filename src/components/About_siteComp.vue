@@ -44,7 +44,8 @@ const props = defineProps({
     .about-text {
       margin-left: 10%;
       margin-right: 10%;
-      line-height: 1.7rem;
+      line-height: 1.8rem;
+      font-size: 20px;
     }
   }
 }
