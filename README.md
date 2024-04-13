@@ -30,7 +30,7 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 
 ## 🛠 Built With
 
-- **Vue.js 3**: Powers the reactive and interactive user interfaces.
+- [![Vue][Vue.js]][Vue-url]: Powers the reactive and interactive user interfaces.
 - **Vite**: Provides a fast development environment and optimized build tooling.
 - **SCSS**: Enhances CSS with more powerful styling capabilities.
 - **TypeScript**: Offers type safety for reliable code.
