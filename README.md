@@ -20,6 +20,10 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **Keyboard Navigation**: Navigate through data points using keyboard shortcuts for efficient analysis.
 - **Animations and Interactivity**: Smooth transitions and responsive interactions enhance the user experience.
 
+## 📱 Mobile Preview
+![mobile (2) (3) (1) (1)](https://github.com/davislyu/OrangeDepth/assets/27707434/9e545424-49a6-4f70-9cd4-3b814c939747)
+
+
 ## 📋 How It Works
 
 - **Chart Navigation**: Switch between various types of charts using the navigation menu to explore different datasets.
