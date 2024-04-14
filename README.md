@@ -17,7 +17,6 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - **Interactive Data Visualizations**: Click and interact with the charts, offering a dynamic user experience similar to professional data analysis tools.
 - **Responsive Design**: Optimized for both desktop and mobile devices, ensuring accessibility and ease of use from anywhere.
 - **Local Storage Integration**: Data configurations and settings are preserved between sessions, ensuring a consistent experience.
-- **Keyboard Navigation**: Navigate through data points using keyboard shortcuts for efficient analysis.
 - **Animations and Interactivity**: Smooth transitions and responsive interactions enhance the user experience.
 
 ## 📱 Mobile Preview
