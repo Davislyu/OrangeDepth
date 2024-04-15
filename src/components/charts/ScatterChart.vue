@@ -15,7 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import { Scatter } from "vue-chartjs";
-import { IOrange } from "../../interfaces/OrangeInterface"; // Ensure this is the correct path
+import { IOrange } from "../../interfaces/OrangeInterface"; 
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 

@@ -29,7 +29,7 @@ export default defineComponent({
     Field: {
       type: String,
       required: true,
-      default: 'defaultField' // Assuming a default field if none is provided
+      default: 'defaultField' 
     },
   },
   setup(props) {
@@ -42,11 +42,11 @@ export default defineComponent({
 
     const DoughnutData = computed<ChartData<"doughnut", number[], unknown>>(() => {
       const fieldData = filteredOrangeData.value.flatMap((group) =>
-        group.data.map((item: IOrange) => item[Field.value as keyof IOrange] as number) // Ensuring that Field.value is used as a key safely
+        group.data.map((item: IOrange) => item[Field.value as keyof IOrange] as number)
       );
 
       const counts = fieldData.reduce((acc: Record<string, number>, value) => {
-        const key = value ? value.toString() : 'Unknown'; // Default key for undefined values
+        const key = value ? value.toString() : 'Unknown'; 
         acc[key] = (acc[key] || 0) + 1;
         return acc;
       }, {});

@@ -36,7 +36,7 @@ export default defineComponent({
     Field: {
       type: String,
       required: true,
-      default: 'defaultField' // Make sure to pass a default or always provide this prop
+      default: 'defaultField' 
     },
   },
   setup(props) {
