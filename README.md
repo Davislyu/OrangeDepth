@@ -55,7 +55,6 @@ Welcome to **OrangeDepth°**, where citrus meets data mastery. This innovative w
 - Background videos are sourced from Pexels.
 - All images, icons, and logos were generated using OpenAI's DALL-E 3.
 
-- 
 ## 🏃🏼 How to Run
 
 To launch OrangeDepth° locally, follow these steps:
